@@ -1,0 +1,126 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/content50.css'/>">
+<link rel="stylesheet"
+	href="<c:url value='/static/css/content100.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
+<link rel="stylesheet"
+	href="<c:url value='/static/icon/font-icon/themify-icons.css'/>">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<title>SINGED-SHOP</title>
+</head>
+<body>
+
+	<div id="content_50">
+		<div id="background_slider">
+			<div id="slider"></div>
+			<h2 id="title_shop" class="title_content">Singed - Shop</h2>
+			<h3 id="slogan" class="title_content">IF YOU LIKE THAT</h3>
+			<div id="div_sub_slogan">
+				<i class="fa-sharp fa-solid fa-user-astronaut" id="icon_clothes"></i>
+				<h4 class="title_content sub_slogan">Đồng hành cùng phong cách
+					của bạn</h4>
+			</div>
+			<a href="#best_selling"><i
+				class="fa-regular fa-circle-down icon_down"></i></a>
+			<div id="list_slider">
+				<div id="slider_child1"></div>
+				<div id="slider_child2"></div>
+				<div id="slider_child_mid"></div>
+				<div id="slider_child4"></div>
+				<div id="slider_child5"></div>
+			</div>
+		</div>
+
+		<h1 id="best_selling">Top bán chạy</h1>
+		<div id="list_product">
+
+			<c:forEach var="BestSaleQuanAo" items="${listBestSaleQuanAo }">
+				<div class="product">
+					<a href="product/${BestSaleQuanAo.idProduct}/${BestSaleQuanAo.idStyle}">
+						<div class="img_product"
+							style="background-image: url(<c:url value="/static/product/${BestSaleQuanAo.image }"/>)"></div>
+						<div class="infor_product">
+							<a class="name_product">${BestSaleQuanAo.nameProduct }</a>
+							<div class="div_price">
+								<a class="price">${BestSaleQuanAo.price }</a> <a class="old_price">450.000đ</a>
+							</div>
+						</div>
+				</div>
+			</c:forEach>
+
+		</div>
+
+		<button id="btn_seeall">Xem tất cả</button>
+	</div>
+
+	<div id="banner">
+		<div id="banner_left">
+			<div class="banner_img1 banner_img"></div>
+			<div class="banner_img2 banner_img"></div>
+			<div class="banner_img3 banner_img"></div>
+			<div class="banner_img4 banner_img"></div>
+			<div class="banner_img5 banner_img"></div>
+		</div>
+		<div id="banner_right">
+			<div id="title_banner">
+				<h2 class="title_h2 h2_1">SALE</h2>
+				<h2 class="title_h2">UP TO</h2>
+			</div>
+			<div id="sale_imgbanner"></div>
+		</div>
+	</div>
+
+	<hr id="line">
+
+	<div id="content_100">
+		<div id="div_new">
+			<h1 id="title_newproduct">Sản phẩm mới</h1>
+			<img id="icon_new" class="new"
+				src="<c:url value='/static/img/new.png' />">
+			<h2 id="sub_newproduct" class="new">New</h2>
+		</div>
+
+		<c:if test="${ listNewQuanAo.size() > 0 }">
+			<ul class="list_product1">
+
+				<c:forEach var="NewQuanAo" items="${listNewQuanAo }"
+					varStatus="loop">
+
+					<li class="product1"><a
+						href="product/${NewQuanAo.idProduct}/${NewQuanAo.idStyle}">
+							<div class="img_product1"
+								style="background-image: url(<c:url value="/static/product/${NewQuanAo.image }"/>)">
+							</div>
+					</a>
+						<div class="infor_product1">
+							<a class="name_product1">${NewQuanAo.nameProduct }</a>
+							<div class="div_price">
+								<a class="price1">${NewQuanAo.price }</a> <a class="old_price1">450.000đ</a>
+							</div>
+						</div></li>
+
+					<c:if
+						test="${ (loop.index + 1) % 4 == 0 || (loop.index + 1) == listNewQuanAo.size() }">
+			</ul>
+						<c:if test="${ (loop.index + 1) < listNewQuanAo.size() }">
+							<ul class="list_product1">
+						</c:if>
+					</c:if>
+			</c:forEach>
+		</c:if>
+
+		<button id="btn_seeall1">Xem tất cả</button>
+	</div>
+
+	<script src="<c:url value='/static/javascript/test.js'/>"></script>
+	<script src="<c:url value='/static/javascript/test1.js'/>"></script>
+
+</body>
+</html>
