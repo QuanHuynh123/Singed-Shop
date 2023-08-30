@@ -32,9 +32,11 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     public String determineTargetUrl(Authentication authentication) { 		//	trả về mục tiêu theo ROLE nếu tài khoản hợp lệ
     	 List<String> roles = SecurityUtils.getAuthorities();
     	 if(isAdmin(roles)) {
+    		 System.out.println("vì là user nên cho vô admin");
     		 return "/admin";
     	 }
     	 else if(isUser(roles)) {
+    		 System.out.println("vì là user nên cho vô trang chủ");
     		 return "/trang-chu";
     	 }
     	 return null ; 

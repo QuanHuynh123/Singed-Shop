@@ -15,6 +15,8 @@ public class UserDTO  {
 	int status ;
 	private List<RoleDTO> roles = new ArrayList<>();
 	
+	String confirmPassword;
+	
 	public UserDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -123,7 +125,5 @@ public class UserDTO  {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
-	
-	
+
 }

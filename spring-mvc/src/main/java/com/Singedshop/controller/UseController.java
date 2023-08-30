@@ -31,7 +31,7 @@ public class UseController  {
 	}
 
 	
-    @RequestMapping(value = "/access-denied", method = RequestMethod.GET)
+    @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
     public ModelAndView accessDenied() {
         return new ModelAndView("redirect:/login?accessDenied");
     }   // không có role mà dám truy cập
@@ -57,6 +57,9 @@ public class UseController  {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView submitRegisterPage(@ModelAttribute("user") UserDTO user) {
+		
+    	System.out.println("ccccc" + user.getPassword());
+		
 		int count = account.addAccount(user);
 		if(count > 0 )
 			_mvShare.addObject("status","Đăng ký thành công !");

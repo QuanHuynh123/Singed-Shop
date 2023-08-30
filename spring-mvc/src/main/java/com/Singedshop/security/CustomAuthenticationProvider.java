@@ -5,6 +5,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.Singedshop.service.web.CustomUserDetailsService;
 
@@ -18,14 +19,12 @@ public class CustomAuthenticationProvider extends AbstractUserDetailsAuthenticat
 	
     @Autowired
     private BCryptPasswordEncoder  passwordsEncoder;
-	
+    
 	@Override
 	protected void additionalAuthenticationChecks(UserDetails userDetails,
 			UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
 		 	String presentedPassword =  authentication.getCredentials().toString();  
-	        String storedPassword = userDetails.getPassword();
-	        
-	        System.out.println("PassWord user nhập : " + presentedPassword + "   |     PassWord từ db : " + storedPassword);
+	        String storedPassword = userDetails.getPassword().toString();     
 	        
 	        if (!passwordsEncoder.matches(presentedPassword, storedPassword)) {
 	        	System.out.println("mật khẩu sai !");

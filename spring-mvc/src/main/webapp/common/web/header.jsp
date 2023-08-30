@@ -1,6 +1,6 @@
+<%@ page import="com.Singedshop.security.utils.SecurityUtils" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.Singedshop.security.utils.SecurityUtils" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <div id="main-head">
 	<div id="header">
 		<img id="img_web" src="<c:url value='/static/img/singed.png' />">
@@ -24,13 +24,18 @@
 				<i class="fa-solid fa-magnifying-glass icon_funtion"></i> 
 				<i class="fa-solid fa-user icon_funtion profile">
 					<ul class="profile_container">
-						<li><a href="/spring-mvc/login">Thông tin</a></li>
-						<security:authorize access="hasRole('ADMIN')">
-							<li><a href="/spring-mvc/admin">Quản lý thông tin</a></li>
+						<security:authorize access="isAnonymous()">
+							<li><a href="/spring-mvc/login">Đăng nhập</a></li>
 						</security:authorize> 
-						<li><a>Đơn hàng của tôi</a></li>
-						<li><a>Giỏ hàng</a></li>
-						<li><a href="/spring-mvc/logout">Đăng xuất</a></li>
+						<security:authorize access="hasRole('ADMIN')">
+							<li><a href="/spring-mvc/admin">Quản lý kho *</a></li>
+						</security:authorize> 
+						<security:authorize access="isAuthenticated">
+							<li><a href="/spring-mvc/admin">Quản lý thông tin</a></li>
+							<li><a>Đơn hàng của tôi</a></li>
+							<li><a>Giỏ hàng</a></li>
+							<li><a href="/spring-mvc/logout">Đăng xuất</a></li>
+						</security:authorize> 
 					</ul>
 				</i> 
 				<a href="/spring-mvc/cart" ><i class="fa-solid fa-cart-shopping icon_funtion" title="Số lượng: ${CartSinged.size()}"></i></a>

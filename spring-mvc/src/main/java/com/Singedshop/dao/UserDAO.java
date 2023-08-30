@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.Singedshop.constant.SystemConstant;
@@ -16,18 +17,42 @@ import com.Singedshop.dto.RoleDTOMapper;
 public class UserDAO extends BaseDAO {
 	
     @Autowired
-    public BCryptPasswordEncoder  passwordEncoder;
-	
-	public int addAccount(UserDTO user) {
+    private BCryptPasswordEncoder  passwordEncoder ;
 		
-		String encodedPassword = passwordEncoder.encode(user.getPassword());
-		
-		System.out.println("Mật khẩu mã hóa vào db : " + encodedPassword );
+    public int addAccount(UserDTO user) {
+    	
+        if (isPhoneExist(user.getPhone())) {
+    	        return -1; 	}
+    	
+    	String hashPass = passwordEncoder.encode(user.getPassword());
 		
 		String sql = "INSERT INTO Users (phone, password, fullName, status) VALUES (?, ?, ?, ?)";
-		jdbcTemplate.update(sql, user.getPhone(), encodedPassword, user.getFullName(), SystemConstant.ACTIVE_STATUS);
+		jdbcTemplate.update(sql, user.getPhone(), hashPass, user.getFullName(), SystemConstant.ACTIVE_STATUS);
+		addRoleAccount(user.getPhone());
 		return 1;
 	}	
+    
+    private boolean isPhoneExist(Long phone) {
+        String sql = "SELECT COUNT(*) FROM Users WHERE phone = ?";
+        int count = jdbcTemplate.queryForObject(sql, new Object[]{phone}, Integer.class);
+        return count > 0;
+    }
+    
+    public void addRoleAccount(Long  phone) {
+    	
+    	int idUser = findIdUser(phone);
+		String sql = "Insert into User_Role(idUser,idRole) values(?,?);";
+		jdbcTemplate.update(sql, idUser, 2);
+	}	
+    
+    public int findIdUser(Long phone) {
+        String sql = "USE SingedShop;\r\n"
+                + "SELECT idUser FROM Users \r\n"
+                + "WHERE phone = ?";
+        int idUser = jdbcTemplate.queryForObject(sql, new Object[]{phone}, Integer.class);
+        return idUser;
+    }
+
 	
 	public UserDTO findOneByUserNameAndStatus(String phone, int status) {
 	    String sql = "SELECT U.idUser, U.fullName, U.phone, U.password, U.gender, U.address, U.yearOld, U.email, "

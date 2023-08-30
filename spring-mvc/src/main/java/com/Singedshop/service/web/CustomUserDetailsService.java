@@ -36,15 +36,13 @@ public class CustomUserDetailsService implements UserDetailsService   {		// clas
 	        }
 	      	
 	        // push thông tin  role	
-	      	/*
 	        MyUserDetail myuser = new MyUserDetail(username,userDTO.getPassword(),true,true,true,true,authorities);	
 	        myuser.setFullName(userDTO.getFullName());
-	        return myuser;*/
+	        return myuser;
 	      	
-	        
+	        /*
 	        UserDetails userDetails = new org.springframework.security.core.userdetails.User( username,userDTO.getPassword(),true,true,true,true,authorities);
-			System.out.println("Account từ database : " + userDetails.getUsername() +" " + userDetails.getPassword());
-	        return userDetails;
+	        return userDetails;*/
 	}
 
 }

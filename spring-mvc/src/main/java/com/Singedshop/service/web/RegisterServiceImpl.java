@@ -14,7 +14,7 @@ public class RegisterServiceImpl implements IRegisterService{
 
 	@Override
 	public int addAccount(UserDTO  user) {
-		account.addAccount(user);
+		if(account.addAccount(user) < 0  ) return 0;
 		return 1 ;
 	}
 

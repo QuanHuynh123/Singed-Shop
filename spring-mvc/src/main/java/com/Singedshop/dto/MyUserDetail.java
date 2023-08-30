@@ -1,55 +1,33 @@
 package com.Singedshop.dto;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
-public class MyUserDetail implements UserDetails {
+public class MyUserDetail extends User {
     private int idUser;
-    private String username;
-    private String password;
     private String fullName;
-    private boolean enabled;
-    private boolean accountNonExpired;
-    private boolean credentialsNonExpired;
-    private boolean accountNonLocked;
-    private Collection<? extends GrantedAuthority> authorities;
 
-    // Các constructors, setters và getters
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+    public MyUserDetail(String username, String password, boolean enabled, boolean accountNonExpired,
+                        boolean credentialsNonExpired, boolean accountNonLocked,
+                        Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
     }
 
-    @Override
-    public String getPassword() {
-        return password;
+    public int getId() {
+        return idUser;
     }
 
-    @Override
-    public String getUsername() {
-        return username;
+    public void setId(int idUser) {
+        this.idUser = idUser;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return accountNonExpired;
+    public String getFullName() {
+        return fullName;
     }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return accountNonLocked;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return credentialsNonExpired;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return enabled;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

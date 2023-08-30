@@ -11,6 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 #login{
@@ -111,6 +112,12 @@ a:-webkit-any-link{
 
 #forgot_passwd{
     font-weight: 600;
+}
+
+.alert-danger{
+	z-index: 10 ;
+	position: absolute !important;
+	top: 0px;
 }
 
 

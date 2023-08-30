@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <%@ page import="com.Singedshop.security.utils.SecurityUtils" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -26,6 +25,7 @@
 			<div id="search">
 				<i class="fa-solid fa-magnifying-glass"></i>
 			</div>
+			<h3>Chào <%SecurityUtils.getPrincipal().getFullName();%> </h3>
 			<div id="div-list-menu">
 				<ul class="menu">
 					<li><i class="fa-solid fa-chart-line icon-list-menu"></i> <a
@@ -36,6 +36,8 @@
 						href="#">Admin</a></li>
 					<li><i class="fa-solid fa-gear icon-list-menu"></i> <a
 						href="#">Config</a></li>
+					<li><i class="fa-solid fa-gear icon-list-menu"></i> <a
+						href="/spring-mvc/logout">Đăng xuất</a></li>
 				</ul>
 			</div>
 		</div>
