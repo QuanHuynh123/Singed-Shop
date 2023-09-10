@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.Singedshop.dao.UserDAO;
 import com.Singedshop.dto.UserDTO;
+import com.Singedshop.service.web.Interface.IRegisterService;
 
 @Service
 public class RegisterServiceImpl implements IRegisterService{

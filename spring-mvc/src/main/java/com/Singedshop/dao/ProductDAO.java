@@ -4,9 +4,9 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.Singedshop.dto.LittleInforProductDTO;
-import com.Singedshop.dto.LittleInforProductDTOMapper;
 import com.Singedshop.dto.ProductDTO;
-import com.Singedshop.dto.ProductDTOMapper;
+import com.Singedshop.dto.mapper.LittleInforProductDTOMapper;
+import com.Singedshop.dto.mapper.ProductDTOMapper;
 
 
 @Repository

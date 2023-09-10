@@ -58,13 +58,15 @@ public class UseController  {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView submitRegisterPage(@ModelAttribute("user") UserDTO user) {
 		
-    	System.out.println("ccccc" + user.getPassword());
-		
+		if(user.getPhone() == null || user.getPassword() == null)
+			_mvShare.addObject("status","Nhập đủ thông tin cần thiết !");
+		else {
 		int count = account.addAccount(user);
 		if(count > 0 )
 			_mvShare.addObject("status","Đăng ký thành công !");
 		else 
 			_mvShare.addObject("status","Đăng ký thất bại !");
+		}
 		return _mvShare;
 	}	
 }

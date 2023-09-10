@@ -4,9 +4,9 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.Singedshop.dto.StylesDTO;
-import com.Singedshop.dto.StylesDTOMapper;
+import com.Singedshop.dto.mapper.LittleInforProductDTOMapper;
+import com.Singedshop.dto.mapper.StylesDTOMapper;
 import com.Singedshop.dto.LittleInforProductDTO;
-import com.Singedshop.dto.LittleInforProductDTOMapper;
 
 @Repository
 public class LittleInforProductDAO extends BaseDAO {

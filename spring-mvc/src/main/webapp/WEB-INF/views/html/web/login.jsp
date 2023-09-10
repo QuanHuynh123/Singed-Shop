@@ -29,7 +29,7 @@
                      <div class="alert alert-info" role="alert">Phiên làm việc hết hạn, yêu cầu đăng nhập lại!</div>
                </c:if>
 
-            	
+            	<!-- /login-url -->
        			<form action="j_spring_security_check"  method="POST" />
        				<fieldset>
                 	<div id="login">
@@ -51,8 +51,7 @@
         </div>
 
 
-   		<script src="<c:url value='/static/javascript/test.js'/>"></script>
-		<script src="<c:url value='/static/javascript/test1.js'/>"></script>
+   		<script src="<c:url value='/static/javascript/header.js'/>"></script>
 		
 </body>
 </html>

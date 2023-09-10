@@ -114,8 +114,10 @@ a:-webkit-any-link{
     font-weight: 600;
 }
 
-.alert-danger{
-	z-index: 10 ;
+.alert-danger,
+.alert-warning,
+.alert-info{
+	z-index: 2 ;
 	position: absolute !important;
 	top: 0px;
 }

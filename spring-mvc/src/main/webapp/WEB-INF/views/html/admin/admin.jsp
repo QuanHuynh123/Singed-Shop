@@ -19,13 +19,16 @@
 	<div id="home-admin">
 		<div id="menu">
 			<div id="intro-admin">
-				<h1 id="title-admin">Admin</h1>
-				<img id="icon" src="<c:url value='/static/img/iconsinged.webp' />">
+				<div id="row-intro">
+					<h1 id="title-admin">Admin</h1>
+					<img id="icon" src="<c:url value='/static/img/iconsinged.webp' />">
+				</div>
+				<h3 id="hello-admin" >Chào <%= SecurityUtils.my.getFullName() %> </h3>
 			</div>
+	
 			<div id="search">
 				<i class="fa-solid fa-magnifying-glass"></i>
 			</div>
-			<h3>Chào <%SecurityUtils.getPrincipal().getFullName();%> </h3>
 			<div id="div-list-menu">
 				<ul class="menu">
 					<li><i class="fa-solid fa-chart-line icon-list-menu"></i> <a

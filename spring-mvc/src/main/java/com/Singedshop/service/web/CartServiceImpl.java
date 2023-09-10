@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Singedshop.dao.CartDAO;
 import com.Singedshop.dto.CartDTO;
+import com.Singedshop.service.web.Interface.ICartService;
 
 @Service
 public class CartServiceImpl implements ICartService {

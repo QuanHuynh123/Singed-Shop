@@ -23,7 +23,7 @@ public class StylesController extends BaseController{
 	@Autowired
 	PaginateServiceImpl paginateService ;
 	
-	@RequestMapping(value = "/styles/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/trang-chu/styles/{id}", method = RequestMethod.GET)
 	public ModelAndView stylePage(@PathVariable int id, ModelMap modelMap ) {
 		ModelAndView mav = new ModelAndView("html/web/product/styles");
 		mav.addObject("id",id);
@@ -37,7 +37,7 @@ public class StylesController extends BaseController{
 		return mav;
 	}
 	
-	@RequestMapping(value = "/styles/{id}/{currentPage}", method = RequestMethod.GET)
+	@RequestMapping(value = "/trang-chu/styles/{id}/{currentPage}", method = RequestMethod.GET)
 	public ModelAndView stylePage(@PathVariable int id ,@PathVariable int currentPage , ModelMap modelMap ) {
 		ModelAndView mav = new ModelAndView("html/web/product/styles");
 		mav.addObject("id",id); 

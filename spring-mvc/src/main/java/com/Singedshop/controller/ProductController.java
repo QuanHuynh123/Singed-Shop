@@ -20,7 +20,7 @@ public class ProductController extends BaseController {
 	@Autowired
 	ProductServiceImpl productService;
 	
-	@RequestMapping(value = "/product/{id}/{idphongcach}", method = RequestMethod.GET)
+	@RequestMapping(value = "/trang-chu/product/{id}/{idphongcach}", method = RequestMethod.GET)
 	public ModelAndView productPage(@PathVariable int id,@PathVariable int idphongcach,  ModelMap modelMap) {
 		ModelAndView mav = new ModelAndView("html/web/product/product");
 		ProductDTO detailQuanAo = productService.getDetailProduct(id);

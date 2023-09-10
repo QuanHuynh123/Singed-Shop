@@ -139,7 +139,6 @@
 		<button id="btn_seeall1">Xem tất cả</button>
 	</div>
 
-	<script src="<c:url value='/static/javascript/test.js'/>"></script>
-	<script src="<c:url value='/static/javascript/test1.js'/>"></script>
+	<script src="<c:url value='/static/javascript/header.js'/>"></script>
 </body>
 </html>

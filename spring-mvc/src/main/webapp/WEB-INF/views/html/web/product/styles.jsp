@@ -27,7 +27,7 @@
 					varStatus="loop">
 
 					<li class="product1"><a
-						href="/spring-mvc/product/${StyleQuanAo.idProduct}/${StyleQuanAo.idStyle}">
+						href="/spring-mvc/trang-chu/product/${StyleQuanAo.idProduct}/${StyleQuanAo.idStyle}">
 							<div class="img_product1"
 								style="background-image: url(<c:url value="/static/product/${StyleQuanAo.image }"/>)">
 							</div>
@@ -54,11 +54,11 @@
 			<c:forEach var="item " begin="${ 1 }"
 				end="${ paginateInfo.totalPage}" varStatus="loop">
 				<c:if test="${ (loop.index) == paginateInfo.currentPage }">
-					<a href="<c:url value="/styles/${id }/${loop.index }"/>"
+					<a href="<c:url value="/trang-chu/styles/${id }/${loop.index }"/>"
 						class="active">${loop.index}</a>
 				</c:if>
 				<c:if test="${ (loop.index) != paginateInfo.currentPage }">
-					<a href="<c:url value="/styles/${idPhongCach }/${loop.index }"/>">${loop.index}</a>
+					<a href="<c:url value="/trang-chu/styles/${idPhongCach }/${loop.index }"/>">${loop.index}</a>
 				</c:if>
 			</c:forEach>
 		</div>
@@ -67,7 +67,7 @@
 		<button id="btn_seeall">Xem tất cả</button>
 	</div>
 
-	<script src="<c:url value='/static/javascript/test.js'/>"></script>
-	<script src="<c:url value='/static/javascript/test1.js'/>"></script>
+	<script src="<c:url value='/static/javascript/header.js'/>"></script>
+	<script src="<c:url value='/static/javascript/slideProduct.js'/>"></script>
 </body>
 </html>

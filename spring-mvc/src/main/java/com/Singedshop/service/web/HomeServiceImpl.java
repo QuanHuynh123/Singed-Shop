@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Singedshop.dao.LittleInforProductDAO;
 import com.Singedshop.dto.StylesDTO;
+import com.Singedshop.service.web.Interface.IHomeService;
 import com.Singedshop.dto.LittleInforProductDTO;
 
 @Service

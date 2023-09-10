@@ -1,3 +1,4 @@
+/*
 package com.Singedshop.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -5,11 +6,12 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.Authentication;
 
 import com.Singedshop.service.web.CustomUserDetailsService;
 
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider  {
@@ -25,11 +27,16 @@ public class CustomAuthenticationProvider extends AbstractUserDetailsAuthenticat
 			UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
 		 	String presentedPassword =  authentication.getCredentials().toString();  
 	        String storedPassword = userDetails.getPassword().toString();     
-	        
+	        System.out.println("chạy trước khi so sánh !");
 	        if (!passwordsEncoder.matches(presentedPassword, storedPassword)) {
-	        	System.out.println("mật khẩu sai !");
+	        	System.out.println("sai mk");
 	            throw new BadCredentialsException("Bad credentials");
-	        }	
+	        }
+	        else {
+	        	Authentication SessionAuthentication= new UsernamePasswordAuthenticationToken(userDetails, presentedPassword, userDetails.getAuthorities()) ; 
+	        	System.out.println("ahahah"  + SessionAuthentication.getPrincipal());
+	        	//SecurityContextHolder.getContext().setAuthentication(SessionAuthentication);
+	        }
 	}
 
 	@Override
@@ -40,4 +47,4 @@ public class CustomAuthenticationProvider extends AbstractUserDetailsAuthenticat
 		else return null ; 
 	}
 
-}
+}	*/

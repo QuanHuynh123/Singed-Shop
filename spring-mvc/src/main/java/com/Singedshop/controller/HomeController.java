@@ -22,16 +22,10 @@ public class HomeController extends BaseController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/sale", method = RequestMethod.GET)
+	@RequestMapping(value = "/trang-chu/sale", method = RequestMethod.GET)
 	public ModelAndView salePage() {
 		ModelAndView mav = new ModelAndView("html/web/sale");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/pay", method = RequestMethod.GET)
-	public ModelAndView payPage() {
-		ModelAndView mav = new ModelAndView("html/web/product/pay");
-		return mav;
-	}
-
 }

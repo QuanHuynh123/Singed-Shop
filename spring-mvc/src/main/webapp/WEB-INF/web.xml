@@ -11,30 +11,32 @@
     </listener>
     
      <!--  Nếu config security bằng mã XML thì phải có filter của security vào web.xml -->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
     
-    <context-param>
+   <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
+        	/WEB-INF/context/security.xml
             /WEB-INF/context/applicationContext.xml
-            /WEB-INF/context/security.xml
         </param-value>
     </context-param>
     
-    <!-- Cái filter chết tiệt, nếu không thêm thì nó éo tìm ra /j_spring_security_check, vì phiên bản của mình cũ vl, đúng đời -->
-    <filter>
+    <!-- Filter Security + filter j_check  -->
+	<filter>
     	<filter-name>springSecurityFilterChain</filter-name>
     	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
 
 	<filter-mapping>
     	<filter-name>springSecurityFilterChain</filter-name>
-    	<url-pattern>/j_spring_security_check</url-pattern>
+    	<url-pattern>/*</url-pattern>
 	</filter-mapping>
-    <!-- Cái filter chết tiệt, nếu không thêm thì nó éo tìm ra /j_spring_security_check, vì phiên bản của mình cũ vl, đúng đời -->
-    
+	<!-- Filter Security + filter j_check  -->
+	
+   
+<!--    	<servlet-mapping> 
+   		<servlet-name>default</servlet-name> 
+   		<url-pattern>/j_spring_security_check</url-pattern> 
+   	</servlet-mapping> -->
     
      <!-- Spring MVC -->
     <servlet>
@@ -50,16 +52,6 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>
-            /WEB-INF/context/applicationContext.xml
-            /WEB-INF/context/security.xml
-        </param-value>
-    </context-param>
-    <!--  Nếu config security bằng mã XML thì phải có filter của security vào web.xml -->
-    
     
     <!-- sitemesh filter -->
     <filter>

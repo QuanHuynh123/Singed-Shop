@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.Singedshop.dto.LittleInforProductDTO;
-import com.Singedshop.dto.LittleInforProductDTOMapper;
+import com.Singedshop.dto.mapper.LittleInforProductDTOMapper;
 
 @Repository
 public class CategoryDAO extends BaseDAO {

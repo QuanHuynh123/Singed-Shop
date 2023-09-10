@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Singedshop.dao.CategoryDAO;
 import com.Singedshop.dto.LittleInforProductDTO;
+import com.Singedshop.service.web.Interface.IStylesService;
 
 @Service
 public class StylesServiceImpl implements IStylesService{

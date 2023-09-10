@@ -2,6 +2,7 @@ package com.Singedshop.service.web;
 
 import com.Singedshop.dto.LittleInforProductDTO;
 import com.Singedshop.dto.ProductDTO;
+import com.Singedshop.service.web.Interface.IProductService;
 
 import java.util.List;
 

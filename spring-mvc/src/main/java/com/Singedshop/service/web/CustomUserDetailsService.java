@@ -13,6 +13,7 @@ import java.util.List;
 
 import com.Singedshop.dto.RoleDTO;
 import com.Singedshop.dto.UserDTO;
+import com.Singedshop.service.web.Interface.ILoginService;
 import com.Singedshop.constant.SystemConstant;
 import com.Singedshop.dto.MyUserDetail;
 
@@ -36,7 +37,7 @@ public class CustomUserDetailsService implements UserDetailsService   {		// clas
 	        }
 	      	
 	        // push thông tin  role	
-	        MyUserDetail myuser = new MyUserDetail(username,userDTO.getPassword(),true,true,true,true,authorities);	
+	        MyUserDetail myuser = new MyUserDetail(username,userDTO.getPassword(),true,true,true,true,authorities);
 	        myuser.setFullName(userDTO.getFullName());
 	        return myuser;
 	      	

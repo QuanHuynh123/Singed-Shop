@@ -57,7 +57,7 @@
 		</div>
 		<div class="column_funtion">
 			<h3 class="all_price_cart">Thành tiền :${TotalPriceCartSinged }</h3>
-			<button class="btn_buy_cart">Mua</button>
+			<a href="/spring-mvc/trang-chu/pay"><button  class="btn_buy_cart">Mua</button></a>
 			<a href="/spring-mvc/DeleteAllcart"><button class="btn_delete_cart">Xóa tất cả</button> </a>
 		</div>
 	</div>
@@ -73,5 +73,6 @@
 		}
 	</script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="<c:url value='/static/javascript/header.js'/>"></script>
 </body>
 </html>

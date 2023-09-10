@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,17 +17,15 @@
 <title>SINGED-SHOP</title>
 </head>
 <body>
-
 	<div id="content_50">
 		<div id="background_slider">
 			<div id="slider"></div>
 			<h2 id="title_shop" class="title_content">Singed - Shop</h2>
 			<h3 id="slogan" class="title_content">IF YOU LIKE THAT</h3>
-			<div id="div_sub_slogan">
-				<i class="fa-sharp fa-solid fa-user-astronaut" id="icon_clothes"></i>
-				<h4 class="title_content sub_slogan">Đồng hành cùng phong cách
-					của bạn</h4>
-			</div>
+			<div id="div_sub_slogan"> 
+               	<div class="glowing-icon"><i class="fa-sharp fa-solid fa-user-astronaut" id="icon_clothes"></i></div>
+                <h4 class="title_content sub_slogan"> Đồng hành cùng phong cách của bạn</h4> 
+            </div>
 			<a href="#best_selling"><i
 				class="fa-regular fa-circle-down icon_down"></i></a>
 			<div id="list_slider">
@@ -43,7 +42,7 @@
 
 			<c:forEach var="BestSaleQuanAo" items="${listBestSaleQuanAo }">
 				<div class="product">
-					<a href="product/${BestSaleQuanAo.idProduct}/${BestSaleQuanAo.idStyle}">
+					<a href="/spring-mvc/trang-chu/product/${BestSaleQuanAo.idProduct}/${BestSaleQuanAo.idStyle}">
 						<div class="img_product"
 							style="background-image: url(<c:url value="/static/product/${BestSaleQuanAo.image }"/>)"></div>
 						<div class="infor_product">
@@ -94,7 +93,7 @@
 					varStatus="loop">
 
 					<li class="product1"><a
-						href="product/${NewQuanAo.idProduct}/${NewQuanAo.idStyle}">
+						href="/spring-mvc/trang-chu/product/${NewQuanAo.idProduct}/${NewQuanAo.idStyle}">
 							<div class="img_product1"
 								style="background-image: url(<c:url value="/static/product/${NewQuanAo.image }"/>)">
 							</div>
@@ -119,8 +118,7 @@
 		<button id="btn_seeall1">Xem tất cả</button>
 	</div>
 
-	<script src="<c:url value='/static/javascript/test.js'/>"></script>
-	<script src="<c:url value='/static/javascript/test1.js'/>"></script>
+	<script src="<c:url value='/static/javascript/header.js'/>"></script>
 
 </body>
 </html>

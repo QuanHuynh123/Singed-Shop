@@ -1,6 +1,7 @@
 package com.Singedshop.security;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -21,6 +22,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
             throws IOException {
+ 
         String targetUrl = determineTargetUrl(authentication);
         if (response.isCommitted()) {
             System.out.println("Đăng nhập không thành công !");
@@ -30,13 +32,12 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     }
 
     public String determineTargetUrl(Authentication authentication) { 		//	trả về mục tiêu theo ROLE nếu tài khoản hợp lệ
+    	  	    	
     	 List<String> roles = SecurityUtils.getAuthorities();
     	 if(isAdmin(roles)) {
-    		 System.out.println("vì là user nên cho vô admin");
     		 return "/admin";
     	 }
     	 else if(isUser(roles)) {
-    		 System.out.println("vì là user nên cho vô trang chủ");
     		 return "/trang-chu";
     	 }
     	 return null ; 

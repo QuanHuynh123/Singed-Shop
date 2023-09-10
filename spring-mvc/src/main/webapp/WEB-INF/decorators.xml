@@ -3,15 +3,9 @@
 
 	
     <decorator name="trang-chu" page="index.jsp">
-       <pattern>/trang-chu</pattern>
-       <pattern>/sale</pattern>
-       <pattern>/login</pattern>
+       <pattern>/trang-chu*</pattern> 
        <pattern>/register</pattern>
-       <pattern>/styles/*</pattern>
-       <pattern>/product/*</pattern>
-       <pattern>/pay</pattern>
-       <pattern>/cart</pattern>
-       <pattern>/j_spring_security_check</pattern>
+       <pattern>/login</pattern>
     </decorator>
     
     <decorator name="admin" page="admin.jsp">

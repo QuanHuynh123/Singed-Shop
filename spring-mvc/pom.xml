@@ -109,7 +109,7 @@
 		</dependency>
 		<!-- end Jackson-->
 		
-  <!--  NỖI NIỀM CONFIG BẤT LỰC , CHÁN ĐỜI , CÁI DM ĐỜI -->
+  	<!-- CONFIG BẤT LỰC , CHÁN ĐỜI , CÁI DM ĐỜI -->
 		<dependency>
     		<groupId>org.springframework.security</groupId>
     		<artifactId>spring-security-web</artifactId>
@@ -120,7 +120,6 @@
     		<artifactId>spring-security-config</artifactId>
     		<version>3.2.8.RELEASE</version>
 		</dependency>
-		
 		
 		<dependency>
     		<groupId>org.springframework.security</groupId>
@@ -133,7 +132,8 @@
 			<artifactId>spring-security-acl</artifactId>
 			<version>3.2.8.RELEASE</version>
 		</dependency>
-		
+	 <!--  CONFIG BẤT LỰC , CHÁN ĐỜI , CÁI DM ĐỜI -->
+	 	
 	</dependencies>
 
 	<build>

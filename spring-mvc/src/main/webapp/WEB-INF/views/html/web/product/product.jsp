@@ -71,7 +71,7 @@
 				<div id="btn">
 					<a href="/spring-mvc/Addcart/${detailQuanAo.idProduct}/${detailQuanAo.idStyle}">
 					<button type="submit" id="btn_add_cart">Thêm vào giỏ <i class="fa-solid fa-cart-shopping"></i></button></a> 
-						<a href="/spring-mvc/pay"><button id="btn_buy">Mua ngay</button></a>
+						<a href="/spring-mvc/trang-chu/pay"><button id="btn_buy">Mua ngay</button></a>
 				</div>
 			</div>
 		</div>
@@ -87,7 +87,7 @@
 					varStatus="loop">
 					<c:if test="${ (loop.index ) <= 10 }">
 						<li class="product"><a
-							href="/spring-mvc/product/${productCategory.idProduct}/${productCategory.idStyle}">
+							href="/spring-mvc/trang-chu/product/${productCategory.idProduct}/${productCategory.idStyle}">
 								<div class="img_product"
 									style="background-image: url(<c:url value="/static/product/${productCategory.image }"/>)"></div>
 								<div class="infor_product">
@@ -107,7 +107,7 @@
 
 	</div>
 
-	<script src="<c:url value='/static/javascript/test.js'/>"></script>
-	<script src="<c:url value='/static/javascript/test1.js'/>"></script>
+	<script src="<c:url value='/static/javascript/header.js'/>"></script>
+	<script src="<c:url value='/static/javascript/slideProduct.js'/>"></script>
 </body>
 </html>

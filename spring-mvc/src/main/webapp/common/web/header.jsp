@@ -1,6 +1,6 @@
-<%@ page import="com.Singedshop.security.utils.SecurityUtils" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.Singedshop.security.utils.SecurityUtils" %>
+<%@ include file="/common/taglib.jsp"%>
+
 <div id="main-head">
 	<div id="header">
 		<img id="img_web" src="<c:url value='/static/img/singed.png' />">
@@ -12,36 +12,41 @@
 				<ul class="style">
 					<c:forEach var="ListPhongCach" items="${listPhongCach }">
 						<li><a
-							href="/spring-mvc/styles/${ListPhongCach.idStyle}">${ListPhongCach.nameStyle}</a></li>
+							href="/spring-mvc/trang-chu/styles/${ListPhongCach.idStyle}">${ListPhongCach.nameStyle}</a></li>
 					</c:forEach>
 				</ul></li>
-			<li><a href="/spring-mvc/sale">KHUYẾN MÃI</a></li>
+			<li><a href="/spring-mvc/trang-chu/sale">KHUYẾN MÃI</a></li>
 			<li><a>LIÊN HỆ</a></li>
 		</ul>
+		<div class="search-container">
+             <input class="search-box" placeholder="Tìm kiếm ..">
+             <i class="fa-solid fa-magnifying-glass icon_function"></i>
+        </div>
 		<div id="div_function">
-			<input id="search_box" placeholder="Tìm kiếm ..">
 			<div id="div_iconfunction">
-				<i class="fa-solid fa-magnifying-glass icon_funtion"></i> 
 				<i class="fa-solid fa-user icon_funtion profile">
 					<ul class="profile_container">
-						<security:authorize access="isAnonymous()">
+						<security:authorize access = "isAnonymous()">
 							<li><a href="/spring-mvc/login">Đăng nhập</a></li>
 						</security:authorize> 
-						<security:authorize access="hasRole('ADMIN')">
+						<security:authorize access = "hasRole('ADMIN')">
 							<li><a href="/spring-mvc/admin">Quản lý kho *</a></li>
 						</security:authorize> 
-						<security:authorize access="isAuthenticated">
-							<li><a href="/spring-mvc/admin">Quản lý thông tin</a></li>
+						<security:authorize access = "isAuthenticated()">
+							<li><a href="">Quản lý thông tin</a></li>
 							<li><a>Đơn hàng của tôi</a></li>
 							<li><a>Giỏ hàng</a></li>
 							<li><a href="/spring-mvc/logout">Đăng xuất</a></li>
-						</security:authorize> 
+						</security:authorize>
 					</ul>
 				</i> 
-				<a href="/spring-mvc/cart" ><i class="fa-solid fa-cart-shopping icon_funtion" title="Số lượng: ${CartSinged.size()}"></i></a>
+				<a href="/spring-mvc/trang-chu/cart" ><i class="fa-solid fa-cart-shopping icon_funtion" title="Số lượng: ${CartSinged.size()}"></i></a>
 			</div>
 		</div>
 	</div>
+	<div class="hide">
+        <i class="fa-solid fa-circle-xmark"></i>
+    </div>
 	<div id="div_menu">
 		<img id="icon_menu" src="<c:url value='/static/img/menu.png'/>">
 		<div class="tab_menu">

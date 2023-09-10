@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.Singedshop.constant.SystemConstant;
 import com.Singedshop.dto.UserDTO;
 import com.Singedshop.dto.RoleDTO;
-import com.Singedshop.dto.UserDTOMapper;
-import com.Singedshop.dto.RoleDTOMapper;
+import com.Singedshop.dto.mapper.RoleDTOMapper;
+import com.Singedshop.dto.mapper.UserDTOMapper;
 
 @Repository
 public class UserDAO extends BaseDAO {

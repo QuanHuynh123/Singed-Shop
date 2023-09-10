@@ -3,6 +3,7 @@ package com.Singedshop.service.web;
 import org.springframework.stereotype.Service;
 
 import com.Singedshop.dto.PaginateDTO;
+import com.Singedshop.service.web.Interface.IPaginateService;
 
 @Service
 public class PaginateServiceImpl implements IPaginateService {
