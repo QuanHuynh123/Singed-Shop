@@ -4,16 +4,21 @@
     list-style-type: none;
     cursor:default;
   }
+  
+a{
+	color: none !important;
+	text-decoration: none !important;  
+}
 
 #home-admin{
     display: flex;
     width: 100%;
-    height: 700px;
+    height: 1000px;
 }
 
 #menu{
     width: 20%;
-    height: 700px;
+    height: 1000px;
     background-color: rgb(30, 29, 38);
     display: flex;
     flex-direction: column;
@@ -76,8 +81,8 @@
 
 #content{
     width: 80%;
-    height:700px;
     background-color: rgb(219, 220, 222);
+    height: 1000px;
 }
 
 #header-content{
@@ -326,7 +331,7 @@ footer{
 }
 
 .style {
-    width: 10%;
+    width: 5%;
 }
 
 .type {
@@ -349,6 +354,10 @@ footer{
     font-weight: 600;
 }
 
+.edit{
+    width: 5%;
+}
+
 .describe-product {
     max-width: 1px; /* Định nghĩa chiều rộng tối đa của cột mô tả */
     overflow: hidden;
@@ -361,4 +370,18 @@ footer{
     border: none;
     background: transparent;
     width: 100%;
+    font-size: 13px;
+    color: black;
   }
+  
+  .swal2-warning{
+	  width: 20px !important;
+	  height: 20px !important;
+	  border: 5px solid ;
+	  padding: 50px !important;
+	  text-align: center;
+	  margin: 20px auto 20px auto !important;	  
+  }
+	
+
+  

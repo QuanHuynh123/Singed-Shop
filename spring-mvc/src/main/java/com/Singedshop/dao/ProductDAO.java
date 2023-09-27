@@ -7,6 +7,7 @@ import com.Singedshop.dto.LittleInforProductDTO;
 import com.Singedshop.dto.ProductDTO;
 import com.Singedshop.dto.mapper.LittleInforProductDTOMapper;
 import com.Singedshop.dto.mapper.ProductDTOMapper;
+import com.Singedshop.dto.mapper.FullProductDTOMapper;
 
 
 @Repository
@@ -28,5 +29,11 @@ public class ProductDAO extends BaseDAO  {
 				+ "FROM Product\r\n"
 				+ "WHERE idStyle = " + idStyle ;
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper()); 
+	}
+	
+public List<ProductDTO> getAllProduct(){ 
+		
+		String sql = "Use SingedShop select idProduct, nameProduct ,image, quantity, price, oldPrice, idStyle ,idCategory , purchases ,  describe , Date from Product" ; 
+		return jdbcTemplate.query(sql,  new FullProductDTOMapper()) ; 
 	}
 }

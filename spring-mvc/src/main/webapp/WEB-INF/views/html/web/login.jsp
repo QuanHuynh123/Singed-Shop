@@ -30,6 +30,7 @@
                </c:if>
 
             	<!-- /login-url -->
+            	<security:authorize access = "isAnonymous()">
        			<form action="j_spring_security_check"  method="POST" />
        				<fieldset>
                 	<div id="login">
@@ -47,6 +48,7 @@
                 	</div>
                 	</fieldset>
             	</form>
+            	</security:authorize>
             </div>
         </div>
 

@@ -7,6 +7,8 @@
 	<dec:head/>
 </head>
 <body>
+	<%@ include file="/common/admin/menu.jsp" %>
+	
 	<dec:body/>
 		<!-- Footer -->
 	<%@ include file="/common/admin/footer.jsp" %>

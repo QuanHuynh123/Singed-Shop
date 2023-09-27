@@ -2,12 +2,10 @@ package com.Singedshop.dao;
 
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.Singedshop.dto.CategoryDTO;
+import com.Singedshop.dto.mapper.CategoryDTOMapper;
 import com.Singedshop.dto.LittleInforProductDTO;
 import com.Singedshop.dto.mapper.LittleInforProductDTOMapper;
 
@@ -36,5 +34,13 @@ public class CategoryDAO extends BaseDAO {
 				+ "WHERE Subquery.RowNumber BETWEEN "+ start + " AND " + end;
 
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper());
+	}
+	
+	public List<CategoryDTO> getCategory() {
+
+		String sql = "Use SingedShop\r\n"
+				+ "	Select * from Category";
+
+		return jdbcTemplate.query(sql, new CategoryDTOMapper());
 	}
 }

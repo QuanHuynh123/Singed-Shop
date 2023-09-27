@@ -17,6 +17,6 @@ public class BaseController {
 	
 	@ModelAttribute("listPhongCach")
 	public List<StylesDTO> getListPhongCach() {
-	    return homeService.getStyleAllProduct();
+	    return homeService.getStyle();
 	}
 }

@@ -27,8 +27,8 @@ public class HomeServiceImpl implements  IHomeService {
 	}
 
 	@Override
-	public List<StylesDTO> getStyleAllProduct() {
-		return quanaoDAo.getStyleAllProduct();
+	public List<StylesDTO> getStyle() {
+		return quanaoDAo.getStyle();
 	}
 
 	

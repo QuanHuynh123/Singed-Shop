@@ -30,7 +30,7 @@ public class LittleInforProductDAO extends BaseDAO {
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper());
 	}
 
-	public List<StylesDTO> getStyleAllProduct() {
+	public List<StylesDTO> getStyle() {
 		String sql = "USE SingedShop;\r\n" + "Select * from Style";
 
 		return jdbcTemplate.query(sql, new StylesDTOMapper());

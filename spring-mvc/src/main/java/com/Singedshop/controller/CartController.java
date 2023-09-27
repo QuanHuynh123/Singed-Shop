@@ -88,6 +88,8 @@ public class CartController extends BaseController {
 	@RequestMapping(value = "/trang-chu/pay", method = RequestMethod.GET)
 	public ModelAndView payPage(HttpServletRequest request,HttpSession session ) {
 		ModelAndView mav = new ModelAndView("html/web/product/pay");
+		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("CartSinged");
+		session.setAttribute("CartSinged",cart);
 		mav.addObject("bill", new BillDTO());
 		return mav;
 	}
@@ -95,7 +97,7 @@ public class CartController extends BaseController {
 	@RequestMapping(value = "/trang-chu/pay", method = RequestMethod.POST)
 	public String getPayPage(HttpServletRequest request,HttpSession session , @ModelAttribute("bill") BillDTO bill ) {
 		//bill.setQuanty(Integer.parseInt((String) session.getAttribute("TotalQuantityCartSinged")));
-		bill.setQuanty((Integer) session.getAttribute("TotalQuantityCartSinged"));
+		bill.setTotalQuanty((Integer) session.getAttribute("TotalQuantityCartSinged"));
 
 		bill.setTotalAmount((Double )session.getAttribute("TotalPriceCartSinged"));
 		if(payService.addBill(bill) > 0 ) {

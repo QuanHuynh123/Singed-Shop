@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp" %> 
+<%@ include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +7,8 @@
 <link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/pay.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
-<link rel="stylesheet"
-	href="<c:url value='/static/icon/font-icon/themify-icons.css'/>">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" href="<c:url value='/static/icon/font-icon/themify-icons.css'/>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 <title>SINGED-SHOP</title>
 </head>
 <body>
@@ -49,43 +47,34 @@
 					<button type="submit" id="btn_order" >Đặt hàng</button>
 				</div>
 			</form:form>
+				<c:if test="${ CartSinged.size() > 0 }">
 				<div id="content_infor_product">
 					<div id="title_product">
 						<h3>Sản phẩm</h3>
 						<label>100</label>
 					</div>
 					<div id="infor_product">
-						<div id="product_to_order">
-							<div id="name_price">
-								<h4 id="name_product"> Áo polo xấu như quỷ </h4>
-	                            <h4 id="price_product"> 12000đ </h4>
-							</div>
-							<h4> Số lượng : x5 </h4>
-						</div>
-						<hr>
-						<div id="product_to_order">
-							<div id="name_price">
-								<h4 id="name_product">Áo polo xấu như quỷ</h4>
-								<h4 id="price_product"> 12000đ</h4> 
-							</div>
-							<h4>Số lượng : x5</h4>
-						</div>
-						<hr>
-						<div id="product_to_order">
-							<div id="name_price">
-								<h4 id="name_product">Áo polo xấu như quỷ</h4>
-								<h4 id="price_product">12000đ</h4>
-							</div>
-							<h4>Số lượng : x5</h4>
-						</div>
+							<ul>
+								<c:forEach var="item" items="${ CartSinged }" varStatus="loop">
+								<div id="product_to_order">
+									<div id="name_price">
+										<h4 id="name_product"> ${item.value.productDTO.nameProduct } </h4>
+	                            		<h4 id="price_product"> ${item.value.productDTO.price } </h4>
+									</div>
+									<h4> Số lượng :${item.value.quantity} </h4>
+								</div>
+								<hr>
+								</c:forEach>
+							</ul>									
+						
 					</div>
-					<div id="total_price">Tổng thành tiền : 1231203</div>
-
+					<div id="total_price">Tổng thành tiền : ${item.value.totalPrice }</div>
 					<div id="sale">
 						<input class="code_sale" value="Mã khuyễn mãi">
 						<button class="btn_code_sale">Xác nhận</button>
 					</div>
 				</div>
+				</c:if>
 			</div>
 	</div>
 	<script src="<c:url value='/static/javascript/header.js'/>"></script>
