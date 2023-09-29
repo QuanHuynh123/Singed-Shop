@@ -67,7 +67,7 @@
 						<tr>
 							<td><input type="checkbox" id="checkbox_${item.idProduct}" value="${item.idProduct}"><a>${item.idProduct}</a></td>
 							<td><a class="input-cell" type="text" >${item.nameProduct }</a></td>
-							<td><img  class="input-cell" src="product1.jpg" alt="${item.image }"></td>
+							<td><img  class="input-cell" alt="${item.image }"></td>
 							<td><a class="input-cell" type="text" >${item.quantity }</a></td>
 							<td><a class="input-cell" type="text" >${item.price }</a></td>
 							<td><a class="input-cell" type="text" >${item.oldPrice }</a></td>

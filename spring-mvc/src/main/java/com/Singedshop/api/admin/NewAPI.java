@@ -25,6 +25,7 @@ public class NewAPI {
 	@PutMapping("/api/new")	
 	public ProductDTO  updateQuanAO(@RequestBody ProductDTO quanAo){
 		return admin.update(quanAo);
+	
 	};
 	
 	@DeleteMapping("/api/new")

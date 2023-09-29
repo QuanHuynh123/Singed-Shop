@@ -10,11 +10,12 @@
 	<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
 	<link rel="stylesheet" href="<c:url value='/static/css/admin.css'/>">
 	<link rel="stylesheet" href="<c:url value='/static/css/edit.css'/>">
-	<link rel="stylesheet" href="<c:url value='/static/icon/font-icon/themify-icons.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<title>SINGED-SHOP</title>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
  <div id="content">
@@ -24,15 +25,16 @@
 			</div>
 		</c:if>
         <h1 class="title_edit">Thông tin sản phẩm</h1>
-        <form:form id="form_submit" modelAttribute="product">
-            <label for="ten">Tên sản phẩm:</label>
+        
+        <form:form role="form" id="formSubmit" modelAttribute="product">
+            <label for="name_edit">Tên sản phẩm:</label>
             <form:input id="name_edit" path="nameProduct"/><br>
 
             <label for="quanty_edit">Số lượng:</label>
             <form:input id="quanty_edit" path="quantity"/><br>
             
             <div class="div_img_edit">
-                <label class="" for="form-field-1">Ảnh:</label>
+                <label class="" for="thumbnail">Ảnh:</label>
                 <div class="img_edit">
                     <input type="file" class="" id="thumbnail" name="image"/>
                 </div>
@@ -53,7 +55,7 @@
             </select><br>  
             
             
-           <label for="category_edit">Loại:</label>
+           <label for="category_edit">Loại: ${idProduct} </label>
             <form:select id="category_edit" path="category">
                 <form:option value="0" label=" -- Chọn loại -- "/>
                 <form:options items="${categoryList }"/>
@@ -62,29 +64,38 @@
             <br><br>
 			<form:hidden path="idProduct" id="newIdProduct"/>
 			<c:if test="${not empty idProduct }">
-				<button type="button" value="Submit" id="btnAddOrUpdateNew"><i>Cập nhật bài viết</i></button>
+				<button type="button" value="submit" id="btnAddOrUpdateNew"><i>Cập nhật bài viết</i></button>
 			</c:if>
 			<c:if test="${empty idProduct }">
-            	<button type="button" value="Submit" id="btnAddOrUpdateNew"><i>Thêm bài viết</i></button>
+            	<button type="button" value="submit" id="btnAddOrUpdateNew"><i>Thêm bài viết</i></button>
             </c:if>
         </form:form>
         </div>
       </div>
       
       <script>
-      		$('#btnAddOrUpdateNew').click(function (e) {
-  	   			 e.preventDefault();
-  	    		 var data = {};
-  	    		 var formData = $('#form_submit').serializeArray();
-  	    		$.each(formData, function (i, v) {
-              	data[""+v.name+""] = v.value;
-          	});
+    	if (typeof jQuery == 'undefined') {
+        	console.log("jQuery is not loaded!");
+    	} else {
+        	console.log("jQuery is loaded!");
+    	}
+	</script>
+      
+      <script>
+      	$('#btnAddOrUpdateNew').click(function (e) {
+  	    e.preventDefault();
+  	    var data = {};
+  	    var formData = $('#formSubmit').serializeArray();
+  	    $.each(formData, function (i, v) {
+              data[""+v.name+""] = v.value;
+          });
 			    var id = $('#newIdProduct').val();  		
 			    if (id == 0 ) id = ""; // do idProduct là kiểu int, không thể gán null, giá trị mặc định là 0
 			    
 			    if (id == "") {
 			    	addNew(data);
 			    } else {
+			    	console.log("haha" + data);
 			    	updateNew(data);
 			    }
 			});

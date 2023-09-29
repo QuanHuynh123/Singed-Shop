@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
 	<link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
 	<link rel="stylesheet" href="<c:url value='/static/css/login.css'/>">
-	<link rel="stylesheet" href="<c:url value='/static/icon/font-icon/themify-icons.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 	<!-- Latest compiled and minified CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
