@@ -18,12 +18,12 @@ public class HomeServiceImpl implements  IHomeService {
 
 	@Override
 	public List<LittleInforProductDTO> getBestSaleProduct() {
-			return quanaoDAo.getBestSaleQuanAo();
+			return quanaoDAo.getBestSaleProduct();
 	}
 
 	@Override
 	public List<LittleInforProductDTO> getNewProduct() {
-		return quanaoDAo.getNewQuanAo();
+		return quanaoDAo.getNewProduct();
 	}
 
 	@Override

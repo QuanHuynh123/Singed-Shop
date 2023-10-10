@@ -4,6 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<%@ page import="com.Singedshop.security.utils.SecurityUtils" %>
 	<dec:head/>
 </head>
 <body>

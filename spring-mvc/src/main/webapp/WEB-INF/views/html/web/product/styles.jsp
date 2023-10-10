@@ -8,8 +8,7 @@
 <link rel="stylesheet" href="<c:url value='/static/css/style.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 <title>SINGED-SHOP</title>
 </head>
 <body>
@@ -20,21 +19,22 @@
 	<div id="content_50">
 
 		<c:if test="${ productPaginate.size() > 0 }">
-			<ul class="list_product1">
+			<ul class="list_product_sale">
 
 				<c:forEach var="StyleQuanAo" items="${productPaginate }"
 					varStatus="loop">
 
-					<li class="product1"><a
-						href="/spring-mvc/trang-chu/product/${StyleQuanAo.idProduct}/${StyleQuanAo.idStyle}">
-							<div class="img_product1"
+					<li class="product"><a
+						href="<c:url value="/trang-chu/product/${StyleQuanAo.idProduct}/${StyleQuanAo.idStyle}"/>">
+							<div class="img_product"
 								style="background-image: url(<c:url value="/static/product/${StyleQuanAo.image }"/>)">
 							</div>
 					</a>
-						<div class="infor_product1">
-							<a class="name_product1">${StyleQuanAo.nameProduct }</a>
+						<div class="infor_product">
+							<a class="name_product">${StyleQuanAo.nameProduct }</a>
 							<div class="div_price">
-								<a class="price1">${StyleQuanAo.price }</a> <a class="old_price1">450.000đ</a>
+								<a class="price">${StyleQuanAo.price }</a> 
+								<a class="old_price">${StyleQuanAo.oldPrice }</a>
 							</div>
 						</div></li>
 
@@ -42,7 +42,7 @@
 						test="${ (loop.index + 1) % 4 == 0 || (loop.index + 1) == productPaginate.size() }">
 			</ul>
 			<c:if test="${ (loop.index + 1) < productPaginate.size() }">
-				<ul class="list_product1">
+				<ul class="list_product_sale">
 			</c:if>
 		</c:if>
 		</c:forEach>

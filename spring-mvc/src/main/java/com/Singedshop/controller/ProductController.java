@@ -21,12 +21,18 @@ public class ProductController extends BaseController {
 	ProductServiceImpl productService;
 	
 	@RequestMapping(value = "/trang-chu/product/{id}/{idphongcach}", method = RequestMethod.GET)
-	public ModelAndView productPage(@PathVariable int id,@PathVariable int idphongcach,  ModelMap modelMap) {
+	public ModelAndView productDetailPage(@PathVariable int id,@PathVariable int idphongcach,  ModelMap modelMap) {
 		ModelAndView mav = new ModelAndView("html/web/product/product");
 		ProductDTO detailQuanAo = productService.getDetailProduct(id);
 		modelMap.addAttribute("detailQuanAo",detailQuanAo);
 		List<LittleInforProductDTO> productCategory = productService.getProductCategory(idphongcach);
 		modelMap.addAttribute("productCategory",productCategory);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/trang-chu/product", method = RequestMethod.GET)
+	public ModelAndView productPage(ModelMap modelMap) {
+		ModelAndView mav = new ModelAndView("html/web/product/product");
 		return mav;
 	}
 }

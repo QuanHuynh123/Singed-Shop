@@ -7,7 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Singedshop.dao.CategoryDAO;
+import com.Singedshop.dao.StyleDAO;
 import com.Singedshop.dto.CategoryDTO;
 import com.Singedshop.service.web.Interface.ICategoryService;
 
@@ -15,7 +15,7 @@ import com.Singedshop.service.web.Interface.ICategoryService;
 public class CategoryServiceImpl implements ICategoryService {
 	
 	@Autowired
-	CategoryDAO category ;
+	StyleDAO category ;
 		
 	@Override
 	public Map<String,String> getCategoryProduct() {

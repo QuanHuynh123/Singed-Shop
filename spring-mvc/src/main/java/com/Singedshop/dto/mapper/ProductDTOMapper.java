@@ -14,6 +14,7 @@ public class ProductDTOMapper implements RowMapper<ProductDTO> {
 		quanAoDTO.setIdProduct(rs.getInt("idProduct"));
 		quanAoDTO.setNameProduct(rs.getString("nameProduct"));
 		quanAoDTO.setPrice(rs.getFloat("price"));
+		quanAoDTO.setOldPrice(rs.getFloat("oldPrice"));
 		quanAoDTO.setImage(rs.getString("image"));
 		quanAoDTO.setQuantity(rs.getInt("quantity"));
 		quanAoDTO.setDescribe(rs.getString("describe"));

@@ -39,15 +39,15 @@
 		<h1 id="best_selling">Top bán chạy</h1>
 		<div id="list_product">
 
-			<c:forEach var="BestSaleQuanAo" items="${listBestSaleQuanAo }">
+			<c:forEach var="item" items="${listBestSaleQuanAo}" varStatus="loop">
 				<div class="product">
-					<a href="/spring-mvc/trang-chu/product/${BestSaleQuanAo.idProduct}/${BestSaleQuanAo.idStyle}">
+					<a href="<c:url value="/trang-chu/product/${item.idProduct}/${item.idStyle}"/>">
 						<div class="img_product"
-							style="background-image: url(<c:url value="/static/product/${BestSaleQuanAo.image }"/>)"></div>
+							style="background-image: url(<c:url value="/static/product/${item.image }"/>)"></div>
 						<div class="infor_product">
-							<a class="name_product">${BestSaleQuanAo.nameProduct }</a>
+							<a class="name_product">${item.nameProduct }</a>
 							<div class="div_price">
-								<a class="price">${BestSaleQuanAo.price }</a> <a class="old_price">450.000đ</a>
+								<a class="price">${item.price }</a> <a class="old_price">${item.oldPrice }</a>
 							</div>
 						</div>
 				</div>
@@ -55,7 +55,7 @@
 
 		</div>
 
-		<button id="btn_seeall">Xem tất cả</button>
+		<a href="<c:url value="/trang-chu/viewAll/1"/>"><button id="btn_seeall">Xem tất cả</button></a>
 	</div>
 
 	<div id="banner">
@@ -88,19 +88,16 @@
 		<c:if test="${ listNewQuanAo.size() > 0 }">
 			<ul class="list_product1">
 
-				<c:forEach var="NewQuanAo" items="${listNewQuanAo }"
-					varStatus="loop">
-
-					<li class="product1"><a
-						href="/spring-mvc/trang-chu/product/${NewQuanAo.idProduct}/${NewQuanAo.idStyle}">
-							<div class="img_product1"
-								style="background-image: url(<c:url value="/static/product/${NewQuanAo.image }"/>)">
-							</div>
+				<c:forEach var="item" items="${listNewQuanAo }" varStatus="loop">
+					<c:if test="${loop.index < 8}">
+					<li class="product1">
+					<a href="<c:url value="/trang-chu/product/${item.idProduct}/${item.idStyle}"/>">
+							<div class="img_product1" style="background-image: url(<c:url value="/static/product/${item.image }"/>)"> </div>
 					</a>
 						<div class="infor_product1">
-							<a class="name_product1">${NewQuanAo.nameProduct }</a>
+							<a class="name_product1">${item.nameProduct }</a>
 							<div class="div_price">
-								<a class="price1">${NewQuanAo.price }</a> <a class="old_price1">450.000đ</a>
+								<a class="price1">${item.price }</a> <a class="old_price1">${item.oldPrice }</a>
 							</div>
 						</div></li>
 
@@ -111,10 +108,11 @@
 							<ul class="list_product1">
 						</c:if>
 					</c:if>
+					</c:if>
 			</c:forEach>
 		</c:if>
 
-		<button id="btn_seeall1">Xem tất cả</button>
+		<a href="<c:url value="/trang-chu/viewAll/2"/>"><button id="btn_seeall1">Xem tất cả</button></a>
 	</div>
 
 	<script src="<c:url value='/static/javascript/header.js'/>"></script>

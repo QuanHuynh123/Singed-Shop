@@ -366,12 +366,12 @@
 		'ti-rss': '&#xe75e;',
 		'ti-rss-alt': '&#xe75f;',
 		'0': 0
-		},
+	},
 		els = document.getElementsByTagName('*'),
 		i, c, el;
 	for (i = 0; ; i += 1) {
 		el = els[i];
-		if(!el) {
+		if (!el) {
 			break;
 		}
 		c = el.className;

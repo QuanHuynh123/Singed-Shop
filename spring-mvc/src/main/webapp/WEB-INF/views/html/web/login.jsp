@@ -43,7 +43,7 @@
                         	<a id="or">hoặc</a>
                         	<img id="img_google" src="<c:url value='/static/img/google.png' />">
                     	</div>
-                    	<div id="reques_register"> Chưa có tài khoản? <a href="/spring-mvc/register" id="text_register">Đăng ký</a> </div>
+                    	<div id="reques_register"> Chưa có tài khoản? <a href="<c:url value="/register"/>" id="text_register">Đăng ký</a> </div>
                     	<a id="forgot_passwd" href="fogot_passwd.html">Quên mật khẩu</a>
                 	</div>
                 	</fieldset>

@@ -10,13 +10,13 @@ import com.Singedshop.dto.LittleInforProductDTO;
 import com.Singedshop.dto.mapper.LittleInforProductDTOMapper;
 
 @Repository
-public class CategoryDAO extends BaseDAO {
+public class StyleDAO extends BaseDAO {
 
 	
 	public List<LittleInforProductDTO> GetAllProductCategory(int idStyle) {
 
 		String sql = "USE SingedShop;\r\n"
-				+ "SELECT idProduct, nameProduct, image, price, idStyle, idCategory, describe FROM Product\r\n"
+				+ "SELECT idProduct, nameProduct, image, price, oldPrice, idStyle, idCategory, describe FROM Product\r\n"
 				+ "WHERE idStyle = " + idStyle;
 
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper());
@@ -25,7 +25,7 @@ public class CategoryDAO extends BaseDAO {
 	public List<LittleInforProductDTO> GetDataProductPaginate(int id , int start, int end) {
 
 		String sql = "USE SingedShop;\r\n"
-				+ "SELECT idProduct , nameProduct , price , image, Date , idStyle , idCategory \r\n"
+				+ "SELECT idProduct , nameProduct , price ,oldPrice , image, Date , idStyle , idCategory \r\n"
 				+ "FROM (\r\n"
 				+ "    SELECT *, ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS RowNumber\r\n"
 				+ "    FROM Product\r\n"
@@ -38,8 +38,7 @@ public class CategoryDAO extends BaseDAO {
 	
 	public List<CategoryDTO> getCategory() {
 
-		String sql = "Use SingedShop\r\n"
-				+ "	Select * from Category";
+		String sql = "Use SingedShop Select * from Category";
 
 		return jdbcTemplate.query(sql, new CategoryDTOMapper());
 	}

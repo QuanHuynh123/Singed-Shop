@@ -26,7 +26,7 @@
                     		<form:input id="passwd" type="password" path="password" placeholder="Mật khẩu" />
                     		<input id="passwd" type="password" placeholder="Nhập lại khẩu"   />  
                  	<%--   <form:input id="passwd" type="password" path="password" placeholder="Nhập lại khẩu" />   --%>
-                    		<button type="submit" id="btn_register" href="/spring-mvc/login">Đăng ký</button>
+                    		<button type="submit" id="btn_register" href="<c:url value="/login"/>">Đăng ký</button>
                 	</div>
                 	</fieldset>
                 </form:form>

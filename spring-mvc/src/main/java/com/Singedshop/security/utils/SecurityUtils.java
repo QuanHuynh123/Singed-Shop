@@ -15,9 +15,8 @@ public class SecurityUtils {
 	public static MyUserDetail my = (MyUserDetail) au.getPrincipal();
 
     public static String  getNameUser() {         		// lấy thông tin người dùng , chính là MyUserDetail để duy trì đăng nhập(principal)
-    	//Authentication  authentication =   (Authentication) (SecurityContextHolder.getContext()).getAuthentication();
-    	//if(authentication == null) System.out.println("authentication ở session phiên login bị null !");
-    	System.out.println("name cua no : " + my.getFullName());
+    	/*Authentication  authentication =   (Authentication) (SecurityContextHolder.getContext()).getAuthentication();
+    	if(authentication == null) System.out.println("authentication ở session phiên login bị null !");*/
     	return my.getFullName();
     }
     

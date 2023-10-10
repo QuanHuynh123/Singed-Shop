@@ -68,9 +68,9 @@
 					</button>
 				</div>
 				<div id="btn">
-					<a href="/spring-mvc/Addcart/${detailQuanAo.idProduct}/${detailQuanAo.idStyle}">
-					<button type="submit" id="btn_add_cart">Thêm vào giỏ <i class="fa-solid fa-cart-shopping"></i></button></a> 
-						<a href="/spring-mvc/trang-chu/pay"><button id="btn_buy">Mua ngay</button></a>
+					<a href="<c:url value="/Addcart/${detailQuanAo.idProduct}/${detailQuanAo.idStyle}"/>">
+					<button type="submit" id="btn_add_cart">Thêm vào giỏ <i class="fa-solid fa-cart-shopping"></i></button></a> }"/>"
+						<a href="<c:url value="/trang-chu/pay"/>"><button id="btn_buy">Mua ngay</button></a>
 				</div>
 			</div>
 		</div>
@@ -86,14 +86,14 @@
 					varStatus="loop">
 					<c:if test="${ (loop.index ) <= 10 }">
 						<li class="product"><a
-							href="/spring-mvc/trang-chu/product/${productCategory.idProduct}/${productCategory.idStyle}">
+							href="<c:url value="/trang-chu/product/${productCategory.idProduct}/${productCategory.idStyle}"/>">
 								<div class="img_product"
 									style="background-image: url(<c:url value="/static/product/${productCategory.image }"/>)"></div>
 								<div class="infor_product">
 									<a class="name_product">${productCategory.nameProduct }</a>
 									<div class="div_price">
 										<a class="price">${productCategory.price }</a> <a
-											class="old_price">450.000đ</a>
+											class="old_price">${productCategory.oldPrice }</a>
 									</div>
 								</div></li>
 					</c:if>

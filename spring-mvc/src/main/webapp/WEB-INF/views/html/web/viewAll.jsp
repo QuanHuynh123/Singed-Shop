@@ -8,8 +8,7 @@
 <link rel="stylesheet" href="<c:url value='/static/css/csssale.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 <title>SINGED-SHOP</title>
 </head>
 <body>
@@ -21,11 +20,11 @@
 		<hr id="line_sale">
 
 		<div id="div_sale">
-			<h1 id="title_sale">#SINGEDsale</h1>
-			<h2 id="sub_sale">Sale up to 50%</h2>
+			<h1 id="title_sale">#SINGED</h1>
+			<h2 id="sub_sale">Trả view tương ứng</h2>
 		</div>
 
-		<c:if test="${ viewAllProduct.size() > 0 }">
+			<c:if test="${ viewAllProduct.size() > 0 }">
 			<ul class="list_product">
 
 			<c:forEach var="item" items="${viewAllProduct }" varStatus="loop">
@@ -55,11 +54,11 @@
 			<c:forEach var="item " begin="${ 1 }"
 				end="${ paginateInfo.totalPage}" varStatus="loop">
 				<c:if test="${ (loop.index) == paginateInfo.currentPage }">
-					<a href="<c:url value="/trang-chu/sale/${loop.index }"/>"
+					<a href="<c:url value="/trang-chu/viewAll/${requestId }/${loop.index }"/>"
 						class="active">${loop.index}</a>
 				</c:if>
 				<c:if test="${ (loop.index) != paginateInfo.currentPage }">
-					<a href="<c:url value="/trang-chu/sale/${loop.index }"/>">${loop.index}</a>
+					<a href="<c:url value="/trang-chu/viewAll/${requestId }/${loop.index }"/>">${loop.index}</a>
 				</c:if>
 			</c:forEach>
 		</div>

@@ -19,7 +19,7 @@ import com.Singedshop.service.web.PaginateServiceImpl;
 public class StylesController extends BaseController{
 	
 	@Autowired
-	StylesServiceImpl categoryService ;
+	StylesServiceImpl styleService ;
 	@Autowired
 	PaginateServiceImpl paginateService ;
 	
@@ -28,11 +28,11 @@ public class StylesController extends BaseController{
 		ModelAndView mav = new ModelAndView("html/web/product/styles");
 		mav.addObject("id",id);
 
-		int totalData = categoryService.GetAllProductCategory(id).size();
+		int totalData = styleService.GetAllProductCategory(id).size();
 		PaginateDTO paginateInfo = paginateService.getInforPaginate(totalData, 8, 1);
 		modelMap.addAttribute("idPhongCach", id);
 		modelMap.addAttribute("paginateInfo", paginateInfo);
-		List<LittleInforProductDTO> productPaginate = categoryService.GetDataProductPaginate(id , paginateInfo.getStart(), paginateInfo.getEnd()); 
+		List<LittleInforProductDTO> productPaginate = styleService.GetDataProductPaginate(id , paginateInfo.getStart(), paginateInfo.getEnd()); 
 		modelMap.addAttribute("productPaginate", productPaginate );
 		return mav;
 	}
@@ -42,11 +42,11 @@ public class StylesController extends BaseController{
 		ModelAndView mav = new ModelAndView("html/web/product/styles");
 		mav.addObject("id",id); 
 		
-		int totalData = categoryService.GetAllProductCategory(id).size();
+		int totalData = styleService.GetAllProductCategory(id).size();
 		PaginateDTO paginateInfo = paginateService.getInforPaginate(totalData, 8, currentPage);
 		modelMap.addAttribute("idPhongCach", id);
 		modelMap.addAttribute("paginateInfo", paginateInfo);
-		List<LittleInforProductDTO> productPaginate = categoryService.GetDataProductPaginate(id , paginateInfo.getStart(), paginateInfo.getEnd()); 
+		List<LittleInforProductDTO> productPaginate = styleService.GetDataProductPaginate(id , paginateInfo.getStart(), paginateInfo.getEnd()); 
 		modelMap.addAttribute("productPaginate", productPaginate );
 		return mav;
 	}

@@ -20,7 +20,7 @@ public class MessageUtil {
 			result.put("message","Delete success");
 			result.put("alert", "danger");
 		}else if(message.equals("error_system")){
-			result.put("message","Error success");
+			result.put("message","Error system");
 			result.put("alert", "danger");
 		}
 		return result;

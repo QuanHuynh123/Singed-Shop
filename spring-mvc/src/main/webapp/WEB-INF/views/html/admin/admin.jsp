@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-<%@ page import="com.Singedshop.security.utils.SecurityUtils" %>
 <c:url var="newAPI" value="/api/new"/>
 <c:url var="newURL" value="/admin"/>
 <!DOCTYPE html>
@@ -65,7 +64,7 @@
 					<tbody>
 						<c:forEach var="item" items="${getAllProduct }">
 						<tr>
-							<td><input type="checkbox" id="checkbox_${item.idProduct}" value="${item.idProduct}"><a>${item.idProduct}</a></td>
+							<td><input type="checkbox" id="checkbox_${item.idProduct}" class="checkbox_idProduct" value="${item.idProduct}"><a>${item.idProduct}</a></td>
 							<td><a class="input-cell" type="text" >${item.nameProduct }</a></td>
 							<td><img  class="input-cell" alt="${item.image }"></td>
 							<td><a class="input-cell" type="text" >${item.quantity }</a></td>
@@ -73,7 +72,7 @@
 							<td><a class="input-cell" type="text" >${item.oldPrice }</a></td>
 							<td><a class="input-cell" type="text" >${item.idStyle }</a></td>
 							<td><a class="input-cell" type="text" >${item.category }</a></td>
-							<td><textarea class="input-cell" id="describe_edit" name="describe" rows="4" cols="50" >${item.describe }</textarea></td>
+							<td><textarea class="input-cell" class="describe_edit" name="describe"  >${item.describe }</textarea></td>
 							<td><a class="input-cell" type="text" >${item.purchase }</a></td>
 							<td><a class="input-cell" type="text" >${item.dateCreate }</a></td>
 							<c:url var="updateProduct" value="/admin/edit">

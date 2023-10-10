@@ -15,6 +15,7 @@ public class LittleInforProductDTOMapper implements RowMapper<LittleInforProduct
 		display.setNameProduct(rs.getString("nameProduct"));
 		display.setImage(rs.getString("image"));
 		display.setPrice(rs.getFloat("price"));
+		display.setOldPrice(rs.getFloat("oldPrice"));
 		display.setCategory(rs.getInt("idCategory"));
 		display.setIdStyle(rs.getInt("idStyle"));
 		return display;

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Singedshop.dao.CategoryDAO;
+import com.Singedshop.dao.StyleDAO;
 import com.Singedshop.dto.LittleInforProductDTO;
 import com.Singedshop.service.web.Interface.IStylesService;
 
@@ -13,7 +13,7 @@ import com.Singedshop.service.web.Interface.IStylesService;
 public class StylesServiceImpl implements IStylesService{
 	
 	@Autowired	
-	private CategoryDAO category;
+	private StyleDAO category;
 
 	@Override
 	public List<LittleInforProductDTO> GetAllProductCategory(int id) {
