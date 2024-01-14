@@ -16,8 +16,8 @@ public class UserDTOMapper implements RowMapper<UserDTO> {
 		user.setPassword(rs.getString("password"));
 		user.setEmail(rs.getString("email"));
 		user.setFullName(rs.getString("fullName"));
-		user.setYearOld(rs.getInt("yearOld"));
-		user.setGender(rs.getBoolean("gender"));
+		user.setAge(rs.getInt("age"));
+		user.setGender(rs.getString("gender"));
 		user.setAddress(rs.getString("address"));
 		user.setPhone(rs.getLong("phone"));
 		user.setStatus(rs.getInt("status"));

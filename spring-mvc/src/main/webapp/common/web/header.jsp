@@ -11,7 +11,7 @@
 
 				<ul class="style">
 					<c:forEach var="ListPhongCach" items="${listPhongCach }">
-						<li><a href="<c:url value="/trang-chu/styles/${ListPhongCach.idStyle}"/>">${ListPhongCach.nameStyle}</a></li>
+						<li><a href="<c:url value="/trang-chu/style/${ListPhongCach.idStyle}"/>">${ListPhongCach.nameStyle}</a></li>
 					</c:forEach>
 				</ul></li>
 			<li><a href="<c:url value="/trang-chu/sale"/>">KHUYẾN MÃI</a></li>
@@ -31,7 +31,7 @@
 							<li><a href="<c:url value="/admin"/>">Quản lý kho *</a></li>
 						</security:authorize> 
 						<security:authorize access = "isAuthenticated()">
-							<li><a href="">Quản lý thông tin</a></li>
+							<li><a href="/spring-mvc/profile">Quản lý thông tin</a></li>
 							<li><a>Đơn hàng của tôi</a></li>
 							<li><a>Giỏ hàng</a></li>
 							<li><a href="<c:url value="/logout"/>">Đăng xuất</a></li>
@@ -89,4 +89,24 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+			var searchInput = document.getElementsByClassName('search-box')[0];
+			var searchButton = document.getElementsByClassName('fa-magnifying-glass')[0];
+			
+			searchInput.addEventListener('keypress', function(event) {
+				  if (event.key === 'Enter') {
+				    performSearch();
+				  }
+				});
+			
+			searchButton.addEventListener('click', function() {
+				  performSearch();
+				});
+		
+		function performSearch() {
+			window.location.assign("http://localhost:8080/spring-mvc/trang-chu/search/"+ searchInput.value);
+			}
+		
+	</script>
 </div>

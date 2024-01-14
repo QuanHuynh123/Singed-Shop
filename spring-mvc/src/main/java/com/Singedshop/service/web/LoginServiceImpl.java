@@ -11,16 +11,18 @@ import com.Singedshop.service.web.Interface.ILoginService;
 public class LoginServiceImpl implements ILoginService {
 	
 	@Autowired
-	UserDAO account  ;
+	UserDAO account ;
 	
 	@Override
-	public UserDTO findOneByUserNameAndStatus(String name, int status) {
+	public UserDTO findOneByUserNameAndStatus(String phone, int status) {
 		UserDTO user = new UserDTO();
-		user = account.findOneByUserNameAndStatus(name, status);
-		if(user != null) { user.setRoles(account.findRoleUser(user.getIdUser()));
-		return user; }
+		user = (account.findOneByUserNameAndStatus(phone, status));
+		
+		if(user != null) { 
+			user.setRoles(account.findRoleUser(user.getIdUser())) ;
+			return user; 
+		}
 		else return null ;
 	}
-
 
 }

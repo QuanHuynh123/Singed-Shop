@@ -69,8 +69,8 @@
 				</div>
 				<div id="btn">
 					<a href="<c:url value="/Addcart/${detailQuanAo.idProduct}/${detailQuanAo.idStyle}"/>">
-					<button type="submit" id="btn_add_cart">Thêm vào giỏ <i class="fa-solid fa-cart-shopping"></i></button></a> }"/>"
-						<a href="<c:url value="/trang-chu/pay"/>"><button id="btn_buy">Mua ngay</button></a>
+					<button type="submit" id="btn_add_cart">Thêm vào giỏ <i class="fa-solid fa-cart-shopping"></i></button></a>
+						<a href="<c:url value="/trang-chu/pay/${detailQuanAo.idProduct }"/>"><button id="btn_buy">Mua ngay</button></a>
 				</div>
 			</div>
 		</div>

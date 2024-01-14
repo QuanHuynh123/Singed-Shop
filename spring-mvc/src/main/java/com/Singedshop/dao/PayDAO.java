@@ -15,7 +15,7 @@ public class PayDAO  extends BaseDAO{
 		String sql = "USE SingedShop;\r\n"
 				+ "  INSERT INTO Bill (phone, email, totalQuanty,address, gender , orderDate , status, totalAmount)\r\n"
 				+ "  VALUES (?, ?, ? , ?, ? , ?, ? ,?);";
-		int insert =  jdbcTemplate.update(sql, bill.getPhone(), bill.getEmail(), bill.getTotalQuanty(), bill.getAddress(), bill.isGender() , bill.getOrderDate(),SystemConstant.INACTIVE_STATUS, bill.getTotalAmount());
+		int insert =  jdbcTemplate.update(sql, bill.getPhone(), bill.getEmail(), bill.getTotalQuanty(), bill.getAddress(), bill.isGender() , bill.getOrderDate(),"Pending confirmation", bill.getTotalPrice());
 		return insert;
 	}
 	

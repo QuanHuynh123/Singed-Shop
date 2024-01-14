@@ -24,8 +24,6 @@ public class CartController extends BaseController {
 	
 	@Autowired
 	private CartServiceImpl cartService = new CartServiceImpl() ;
-	@Autowired
-	private PayServiceImpl payService = new PayServiceImpl();
 	
 	@RequestMapping(value = "/trang-chu/cart", method = RequestMethod.GET)
 	public ModelAndView cartPage() {
@@ -35,76 +33,66 @@ public class CartController extends BaseController {
 	
 	@RequestMapping(value = "Addcart/{id}/{idStyle}", method = RequestMethod.GET)
 	public String AddCart(HttpServletRequest request,HttpSession session , @PathVariable long id , @PathVariable int  idStyle ,  ModelMap modelMap  ) {
-		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("CartSinged");
+		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("Cart");
+		
 		if(cart == null) {
 			cart = new HashMap<Long, CartDTO>();
 		}
+		
 		cart = cartService.AddCart(id, cart);
-		session.setAttribute("CartSinged", cart);
-		session.setAttribute("TotalQuantityCartSinged", cartService.TotalQuanty(cart));
-		session.setAttribute("TotalPriceCartSinged",cartService.TotalPrice(cart));
+		session.setAttribute("Cart", cart);
+		session.setAttribute("TotalQuantityCart", cartService.TotalQuanty(cart));
+		session.setAttribute("TotalPriceCart",cartService.TotalPrice(cart));
+		System.out.println(cartService.TotalQuanty(cart) + " " + cartService.TotalPrice(cart));
 		return "redirect:/trang-chu/product/"+id +"/"+idStyle;
 		//return "redirect:"+request.getHeader("Referer"); 			// trở lại đường dẫn trước đó khi add card , liên quan tới  HttpServletRequest
 	}
 	
 	@RequestMapping(value = "Deletecart/{id}", method = RequestMethod.GET)
 	public String DeleteCart(HttpServletRequest request,HttpSession session , @PathVariable long id , ModelMap modelMap ) {
-		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("CartSinged");
+		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("Cart");
+		
 		if(cart == null) {
 			cart = new HashMap<Long, CartDTO>();
 		}
+		
 		cart = cartService.DeleteCart(id, cart);
-		session.setAttribute("CartSinged", cart);
-		session.setAttribute("TotalQuantityCartSinged", cartService.TotalQuanty(cart));
-		session.setAttribute("TotalPriceCartSinged",cartService.TotalPrice(cart));
+		session.setAttribute("Cart", cart);
+		session.setAttribute("TotalQuantityCart", cartService.TotalQuanty(cart));
+		session.setAttribute("TotalPriceCart",cartService.TotalPrice(cart));
 		return "redirect:/trang-chu/cart";
 	}
 	
 	@RequestMapping(value = "DeleteAllcart", method = RequestMethod.GET)
 	public String DeleteAllCart(HttpServletRequest request,HttpSession session , ModelMap modelMap  ) {
-		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("CartSinged");
-	
+		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("Cart");
+		
+		if(cart == null) {
+			session.setAttribute("TotalPriceCart", 0 );
+			return "redirect:/trang-chu/cart";
+		}
+		
 		cart = cartService.DeleteAllCart(cart);
-		session.setAttribute("CartSinged", cart);
-		session.setAttribute("TotalQuantityCartSinged", cartService.TotalQuanty(cart));
-		session.setAttribute("TotalPriceCartSinged",cartService.TotalPrice(cart));
+		session.setAttribute("Cart", cart);
+		session.setAttribute("TotalQuantityCart", 0);
+		session.setAttribute("TotalPriceCart", 0 );
 		return "redirect:/trang-chu/cart";
 
 	}
 	
 	@RequestMapping(value = "Editcart/{id}/{quantity}", method = RequestMethod.GET)
 	public String EditCart(HttpServletRequest request,HttpSession session , @PathVariable long id , @PathVariable int quantity , ModelMap modelMap  ) {
-		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("CartSinged");
+		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("Cart");
+		
 		if(cart == null) {
 			cart = new HashMap<Long, CartDTO>();
 		}
+		
 		cart = cartService.EditCart(id, quantity, cart);
-		session.setAttribute("CartSinged", cart);
-		session.setAttribute("TotalQuantityCartSinged", cartService.TotalQuanty(cart));
-		session.setAttribute("TotalPriceCartSinged",cartService.TotalPrice(cart));
+		session.setAttribute("Cart", cart);
+		session.setAttribute("TotalQuantityCart", cartService.TotalQuanty(cart));
+		session.setAttribute("TotalPriceCart",cartService.TotalPrice(cart));
 		return "redirect:/trang-chu/cart";
 	}
 	
-	@RequestMapping(value = "/trang-chu/pay", method = RequestMethod.GET)
-	public ModelAndView payPage(HttpServletRequest request,HttpSession session ) {
-		ModelAndView mav = new ModelAndView("html/web/product/pay");
-		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute("CartSinged");
-		session.setAttribute("CartSinged",cart);
-		mav.addObject("bill", new BillDTO());
-		return mav;
-	}
-	
-	@RequestMapping(value = "/trang-chu/pay", method = RequestMethod.POST)
-	public String getPayPage(HttpServletRequest request,HttpSession session , @ModelAttribute("bill") BillDTO bill ) {
-		//bill.setQuanty(Integer.parseInt((String) session.getAttribute("TotalQuantityCartSinged")));
-		bill.setTotalQuanty((Integer) session.getAttribute("TotalQuantityCartSinged"));
-
-		bill.setTotalAmount((Double )session.getAttribute("TotalPriceCartSinged"));
-		if(payService.addBill(bill) > 0 ) {
-			HashMap<Long, CartDTO> cart = (HashMap<Long,CartDTO>)session.getAttribute("CartSinged");
-			payService.addBillDetail(cart);
-		}
-		session.removeAttribute("CartSinged");
-		return "redirect:/trang-chu/cart";
-	}
 }

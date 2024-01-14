@@ -10,19 +10,19 @@ import com.Singedshop.dto.LittleInforProductDTO;
 import com.Singedshop.service.web.Interface.IStylesService;
 
 @Service
-public class StylesServiceImpl implements IStylesService{
+public class StyleServiceImpl implements IStylesService{
 	
 	@Autowired	
 	private StyleDAO category;
 
 	@Override
 	public List<LittleInforProductDTO> GetAllProductCategory(int id) {
-		return category.GetAllProductCategory(id);
+		return category.GetAllProductStyle(id);
 	}
 
 	@Override
 	public List<LittleInforProductDTO> GetDataProductPaginate(int id ,int start, int end) {
-		return category.GetDataProductPaginate(id,start, end);
+		return category.GetStyleProductPaginate(id,start, end);
 	}
 
 }

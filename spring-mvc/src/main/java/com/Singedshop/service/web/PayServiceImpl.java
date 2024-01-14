@@ -28,6 +28,7 @@ public class PayServiceImpl implements IPayService {
 		
 		long idBill = pay.getIdBill();
 		
+		// chuyển giao bill vào billDetail
 		for(Map.Entry<Long, CartDTO> itemCart : cart.entrySet()) {
 			BillDetailDTO billDetail = new BillDetailDTO();
 			billDetail.setIdBill(idBill);

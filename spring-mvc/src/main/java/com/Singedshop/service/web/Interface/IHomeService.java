@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Singedshop.dto.StylesDTO;
 import com.Singedshop.dto.LittleInforProductDTO;
+import com.Singedshop.dto.ProductDTO;
 
 @Service
 public interface IHomeService {
@@ -14,4 +15,5 @@ public interface IHomeService {
 	public List<LittleInforProductDTO> getBestSaleProduct();
 	public List<LittleInforProductDTO> getNewProduct();
 	public List<StylesDTO> getStyle();
+	public List<LittleInforProductDTO> searchProduct(String keySearch);
 }

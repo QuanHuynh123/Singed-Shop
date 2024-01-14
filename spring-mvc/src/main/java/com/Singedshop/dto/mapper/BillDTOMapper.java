@@ -1,4 +1,4 @@
-/*package com.Singedshop.dto.mapper;
+package com.Singedshop.dto.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +19,7 @@ public class BillDTOMapper implements RowMapper<BillDTO> {
 		bill.setOrderDate("");
 		bill.setPhone(rs.getString("phone"));
 		bill.setTotalQuanty(rs.getInt("totalQuanty"));
-		bill.setTotalAmount(rs.getDouble("totlalAmount"));
+		bill.setTotalPrice(rs.getDouble("totalPrice"));
 		billDetail.setIdBillDetail(rs.getInt("idDetail"));
 		billDetail.setIdCategory(rs.getInt("idCategory"));
 		billDetail.setIdProduct(rs.getInt("idProduct"));
@@ -28,4 +28,4 @@ public class BillDTOMapper implements RowMapper<BillDTO> {
 		bill.setBillDetail(billDetail);
 		return bill;
 	}
-}*/
+}

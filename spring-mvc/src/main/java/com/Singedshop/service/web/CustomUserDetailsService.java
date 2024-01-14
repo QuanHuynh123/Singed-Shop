@@ -24,8 +24,8 @@ public class CustomUserDetailsService implements UserDetailsService   {		// clas
     private ILoginService userService;	
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		UserDTO userDTO = userService.findOneByUserNameAndStatus(username, SystemConstant.ACTIVE_STATUS);	// lấy ra tất cả thông tin của người dùng, user
+	public UserDetails loadUserByUsername(String phone) throws UsernameNotFoundException {
+		UserDTO userDTO = userService.findOneByUserNameAndStatus(phone, SystemConstant.ACTIVE_STATUS);	// lấy ra tất cả thông tin của người dùng, user
 	      if(userDTO == null){
 	            throw new UsernameNotFoundException("Username not found");  
 	        }
@@ -37,13 +37,12 @@ public class CustomUserDetailsService implements UserDetailsService   {		// clas
 	        }
 	      	
 	        // push thông tin  role	
-	        MyUserDetail myuser = new MyUserDetail(username,userDTO.getPassword(),true,true,true,true,authorities);
+	        MyUserDetail myuser = new MyUserDetail(phone,userDTO.getPassword(),true,true,true,true,authorities);
 	        myuser.setFullName(userDTO.getFullName());
 	        return myuser;
-	      	
-	        /*
-	        UserDetails userDetails = new org.springframework.security.core.userdetails.User( username,userDTO.getPassword(),true,true,true,true,authorities);
-	        return userDetails;*/
+	              
+//	        UserDetails userDetails = new org.springframework.security.core.userdetails.User( username,userDTO.getPassword(),true,true,true,true,authorities);
+//	        return userDetails;
 	}
 
 }

@@ -74,6 +74,8 @@
       </div>
       
       <script>
+      // Call API bằng ajax
+      
     	if (typeof jQuery == 'undefined') {
         	console.log("jQuery is not loaded!");
     	} else {

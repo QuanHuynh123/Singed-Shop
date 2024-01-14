@@ -9,8 +9,8 @@ public class UserDTO  {
 	String password;
 	String email;
 	private String fullName;
-	int yearOld;
-	boolean gender;
+	int age;
+	String gender;
 	String address;
 	int status ;
 	private List<RoleDTO> roles = new ArrayList<>();
@@ -22,7 +22,7 @@ public class UserDTO  {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserDTO(int idUser, Long phone, String password, String email, String fullName, int yearOld, boolean gender,
+	public UserDTO(int idUser, Long phone, String password, String email, String fullName, int age, String gender,
 			String address,int status,  List<RoleDTO> roles) {
 		super();
 		this.idUser = idUser;
@@ -30,7 +30,7 @@ public class UserDTO  {
 		this.password = password;
 		this.email = email;
 		this.fullName = fullName;
-		this.yearOld = yearOld;
+		this.age = age;
 		this.gender = gender;
 		this.address = address;
 		this.roles = roles;
@@ -86,19 +86,19 @@ public class UserDTO  {
 		this.fullName = fullName;
 	}
 
-	public int getYearOld() {
-		return yearOld;
+	public int getAge() {
+		return age;
 	}
 
-	public void setYearOld(int yearOld) {
-		this.yearOld = yearOld;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
-	public boolean isGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(boolean gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
@@ -125,5 +125,5 @@ public class UserDTO  {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-
+	
 }

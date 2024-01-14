@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/csssale.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/sale.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
 <link rel="stylesheet"
@@ -64,7 +64,6 @@
 			</c:forEach>
 		</div>
 		
-		<button id="btn_seeall">Xem tất cả</button>
 	</div>
 
 	<script src="<c:url value='/static/javascript/header.js'/>"></script>

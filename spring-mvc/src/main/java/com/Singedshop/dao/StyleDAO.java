@@ -13,7 +13,7 @@ import com.Singedshop.dto.mapper.LittleInforProductDTOMapper;
 public class StyleDAO extends BaseDAO {
 
 	
-	public List<LittleInforProductDTO> GetAllProductCategory(int idStyle) {
+	public List<LittleInforProductDTO> GetAllProductStyle(int idStyle) {
 
 		String sql = "USE SingedShop;\r\n"
 				+ "SELECT idProduct, nameProduct, image, price, oldPrice, idStyle, idCategory, describe FROM Product\r\n"
@@ -22,7 +22,7 @@ public class StyleDAO extends BaseDAO {
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper());
 	}
 
-	public List<LittleInforProductDTO> GetDataProductPaginate(int id , int start, int end) {
+	public List<LittleInforProductDTO> GetStyleProductPaginate(int id , int start, int end) {
 
 		String sql = "USE SingedShop;\r\n"
 				+ "SELECT idProduct , nameProduct , price ,oldPrice , image, Date , idStyle , idCategory \r\n"

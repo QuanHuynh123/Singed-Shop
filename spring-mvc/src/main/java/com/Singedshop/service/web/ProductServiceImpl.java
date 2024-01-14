@@ -15,7 +15,7 @@ import com.Singedshop.dao.ProductDAO;
 public class ProductServiceImpl implements IProductService{
 	
 	@Autowired
-	ProductDAO product = new ProductDAO();
+	ProductDAO product ;
 	
 	@Override
 	public ProductDTO  getDetailProduct(int id) {

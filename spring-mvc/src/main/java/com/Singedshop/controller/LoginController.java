@@ -17,10 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.Singedshop.dto.UserDTO;
 import com.Singedshop.service.web.RegisterServiceImpl;
 
-@Controller(value = "UserController")
-public class UseController  {	
+@Controller(value = "LoginController")
+public class LoginController  {	
 	
-	public ModelAndView _mvShare = new ModelAndView();			
+	public ModelAndView _mvShare = new ModelAndView();
+	
 	@Autowired
 	RegisterServiceImpl account = new RegisterServiceImpl();
 		

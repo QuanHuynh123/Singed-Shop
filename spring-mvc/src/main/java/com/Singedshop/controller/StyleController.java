@@ -12,20 +12,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Singedshop.dto.LittleInforProductDTO;
 import com.Singedshop.dto.PaginateDTO;
-import com.Singedshop.service.web.StylesServiceImpl;
+import com.Singedshop.service.web.StyleServiceImpl;
 import com.Singedshop.service.web.PaginateServiceImpl;
 
 @Controller(value = "CategoryController")
-public class StylesController extends BaseController{
+public class StyleController extends BaseController{
 	
 	@Autowired
-	StylesServiceImpl styleService ;
+	StyleServiceImpl styleService ;
 	@Autowired
 	PaginateServiceImpl paginateService ;
 	
-	@RequestMapping(value = "/trang-chu/styles/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/trang-chu/style/{id}", method = RequestMethod.GET)
 	public ModelAndView stylePage(@PathVariable int id, ModelMap modelMap ) {
-		ModelAndView mav = new ModelAndView("html/web/product/styles");
+		ModelAndView mav = new ModelAndView("html/web/product/style");
 		mav.addObject("id",id);
 
 		int totalData = styleService.GetAllProductCategory(id).size();
@@ -37,9 +37,9 @@ public class StylesController extends BaseController{
 		return mav;
 	}
 	
-	@RequestMapping(value = "/trang-chu/styles/{id}/{currentPage}", method = RequestMethod.GET)
+	@RequestMapping(value = "/trang-chu/style/{id}/{currentPage}", method = RequestMethod.GET)
 	public ModelAndView stylePage(@PathVariable int id ,@PathVariable int currentPage , ModelMap modelMap ) {
-		ModelAndView mav = new ModelAndView("html/web/product/styles");
+		ModelAndView mav = new ModelAndView("html/web/product/style");
 		mav.addObject("id",id); 
 		
 		int totalData = styleService.GetAllProductCategory(id).size();

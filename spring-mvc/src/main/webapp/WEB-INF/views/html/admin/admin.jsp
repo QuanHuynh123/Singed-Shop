@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="cache-control"	content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
 	<link rel="stylesheet" href="<c:url value='/static/css/admin.css'/>">
 	
 	<link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">

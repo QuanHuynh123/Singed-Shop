@@ -30,4 +30,9 @@ public class SaleAndViewAllServiceImpl implements ISaleAndViewAllService {
 		return littleInforProductDAO.getPaginationProductSale(start,end);
 	}
 
+	@Override
+	public List<LittleInforProductDTO> getPaginationBestSaleProduct(int start, int end) {
+		return littleInforProductDAO.getPaginationProductBestSale(start, end);
+	}
+
 }

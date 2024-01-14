@@ -10,8 +10,8 @@
 </head>
 <body>
 	<%@ include file="/common/web/header.jsp" %>
+	
 	<dec:body/>
-
 	<!-- Footer -->
 	<%@ include file="/common/web/footer.jsp" %>
 

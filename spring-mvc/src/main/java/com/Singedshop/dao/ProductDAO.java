@@ -31,10 +31,16 @@ public class ProductDAO extends BaseDAO  {
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper()); 
 	}
 	
-public List<ProductDTO> getAllProduct(){ 
+	public List<ProductDTO> getAllProduct(){ 
 		
 		String sql = "Use SingedShop select idProduct, nameProduct ,image, quantity, price, oldPrice, idStyle ,idCategory , purchases ,  describe , Date from Product" ; 
 		return jdbcTemplate.query(sql,  new FullProductDTOMapper()) ; 
+	}
+	
+	public List<LittleInforProductDTO> searchProduct(String keySearch){ 
+		
+		String sql = "Use SingedShop; SELECT * FROM Product WHERE nameProduct LIKE N'%"+ keySearch + "%';" ; 
+		return jdbcTemplate.query(sql,  new LittleInforProductDTOMapper()) ; 
 	}
 
 }

@@ -11,4 +11,5 @@ public interface ISaleAndViewAllService {
 	List<LittleInforProductDTO> getAllSaleProduct();
 	List<LittleInforProductDTO> getPaginationProductNewProduct(int start, int end);
 	List<LittleInforProductDTO> getPaginationSaleProduct(int start, int end);
+	List<LittleInforProductDTO> getPaginationBestSaleProduct(int start, int end);
 }

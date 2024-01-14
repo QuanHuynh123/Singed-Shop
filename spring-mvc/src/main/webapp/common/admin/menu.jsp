@@ -22,7 +22,7 @@
                         <li><i class="fa-solid fa-file icon-list-menu"></i> <a
                             href="<c:url value="/trang-chu"/>">Pages</a></li>
                         <li><i class="fa-solid fa-file-invoice icon-list-menu"></i> <a
-                            href="#">Duyệt đơn</a></li>
+                            href="<c:url value="/admin/bill"/>">Duyệt đơn</a></li>
                         <li><i class="fa-solid fa-gear icon-list-menu"></i> <a
                             href="#">Config</a></li>
                         <li><i class="fa-solid fa-gear icon-list-menu"></i> <a

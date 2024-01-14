@@ -13,7 +13,7 @@ import com.Singedshop.service.web.Interface.ICartService;
 public class CartServiceImpl implements ICartService {
 	
 	@Autowired
-	private CartDAO cartDAO = new CartDAO();
+	private CartDAO cartDAO ;
 
 	@Override
 	public HashMap<Long, CartDTO> AddCart(long id, HashMap<Long, CartDTO> cart) {

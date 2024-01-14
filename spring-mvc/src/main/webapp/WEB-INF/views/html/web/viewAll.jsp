@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/csssale.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/sale.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/viewAll.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
 <link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -15,13 +16,11 @@
 
 	<div id="content">
 		<div id="div_slider_sale"></div>
-		<div id="logo_slider_sale"></div>
 
 		<hr id="line_sale">
 
 		<div id="div_sale">
 			<h1 id="title_sale">#SINGED</h1>
-			<h2 id="sub_sale">Trả view tương ứng</h2>
 		</div>
 
 			<c:if test="${ viewAllProduct.size() > 0 }">
@@ -63,7 +62,6 @@
 			</c:forEach>
 		</div>
 		
-		<button id="btn_seeall">Xem tất cả</button>
 	</div>
 
 	<script src="<c:url value='/static/javascript/header.js'/>"></script>

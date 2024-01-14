@@ -18,7 +18,7 @@ public class LittleInforProductDAO extends BaseDAO {
 
 	public List<LittleInforProductDTO> getBestSaleProduct() {
 		String sql = "USE SingedShop\r\n"
-				+ "SELECT top 4 idProduct, nameProduct, price,oldPrice, idStyle, idCategory, purchases,image\r\n"
+				+ "SELECT idProduct, nameProduct, price,oldPrice, idStyle, idCategory, purchases,image\r\n"
 				+ "FROM Product\r\n"
 				+ "ORDER BY purchases DESC";
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper());
@@ -40,6 +40,12 @@ public class LittleInforProductDAO extends BaseDAO {
 		return jdbcTemplate.query(sql, new StylesDTOMapper());
 	}
 	
+	public List<LittleInforProductDTO> getAllProductSale(){ 
+		
+		String sql = "Use SingedShop select idProduct, nameProduct, price,oldPrice, idStyle, idCategory , image , Sale from Product where Sale > 0" ; 
+		return jdbcTemplate.query(sql,  new LittleInforProductDTOMapper()) ; 
+	}
+	
 	
 	public List<LittleInforProductDTO> getPaginationProductNewProduct(int start , int end) {
 
@@ -49,12 +55,6 @@ public class LittleInforProductDAO extends BaseDAO {
 				+ "WHERE Subquery.RowNumber BETWEEN "+ start+" AND "+end ;
 
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper());
-	}
-	
-	public List<LittleInforProductDTO> getAllProductSale(){ 
-		
-		String sql = "Use SingedShop select idProduct, nameProduct, price,oldPrice, idStyle, idCategory , image , Sale from Product where Sale > 0" ; 
-		return jdbcTemplate.query(sql,  new LittleInforProductDTOMapper()) ; 
 	}
 
 	public List<LittleInforProductDTO> getPaginationProductSale(int start, int end) {
@@ -66,7 +66,17 @@ public class LittleInforProductDAO extends BaseDAO {
 				+ "WHERE Subquery.RowNumber BETWEEN "+ start +" AND " + end;
 
 		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper());
-}
+	}
+	
+	public List<LittleInforProductDTO> getPaginationProductBestSale(int start, int end) {
+
+		String sql = "USE SingedShop\r\n"
+				+ "SELECT idProduct , nameProduct , price ,oldPrice , image, Date , idStyle , idCategory \r\n"
+				+ "FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY purchases DESC) AS RowNumber FROM Product ) AS Subquery \r\n"
+				+ "WHERE Subquery.RowNumber BETWEEN "+ start +" AND " + end;
+
+		return jdbcTemplate.query(sql, new LittleInforProductDTOMapper());
+	}
 
 
 }

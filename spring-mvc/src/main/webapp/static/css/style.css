@@ -5,23 +5,22 @@
 	margin-top: 80px;
 }
 
-.list_product1 {
+.list_product {
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 40px;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-bottom: 30px;
-
 }
 
-.product1 {
+.product {
 	margin-right: 40px;
 	margin-left: 40px;
 	width: 240px;
 }
 
-.img_product1 {
+.img_product {
 	background-size: cover;
 	width: 100%;
 	height: 350px;
@@ -32,11 +31,11 @@
 	border-radius: 5px 5px 0px 0px;
 }
 
-.img_product1:last-child {
+.img_product:last-child {
 	margin-right: 0;
 }
 
-.infor_product1 {
+.infor_product {
 	width: 100%;
 	height: 55px;
 	background: #E2E2E2;
@@ -47,7 +46,7 @@
 	flex-direction: column;
 }
 
-.name_product1 {
+.name_product {
 	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 700;
@@ -65,7 +64,7 @@
     margin-top: auto;
 }
 
-.price1 {
+.price {
 	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 500;
@@ -75,7 +74,7 @@
 	margin-right: 5px;
 }
 
-.old_price1 {
+.old_price {
 	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 400;
@@ -87,20 +86,6 @@
 	margin-right: 2px;
 }
 
-#btn_seeall {
-	width: 180px;
-	height: 38px;
-	background: #000000;
-	border-radius: 6px;
-	margin-top: 50px;
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 15px;
-	line-height: 21px;
-	color: #FFFFFF;
-	margin-bottom: 80px;
-}
 
 #title_style {
 	font-family: Roboto;
@@ -120,10 +105,13 @@
 }
 
 
+/*CSS phân trang*/
+
 .pagination {
 	display: flex;
 	justify-content: center;
 	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .pagination a {

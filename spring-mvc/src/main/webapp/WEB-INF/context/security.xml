@@ -29,14 +29,22 @@
 		<!-- <authentication-provider ref="customAuthenticationProvider" /> -->
 	</authentication-manager>
 
-
-	<beans:bean id="bcryptEncoder"
-		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-	<beans:bean id="customUserDetailsService"
-		class="com.Singedshop.service.web.CustomUserDetailsService" />
+	
 	<beans:bean id="customSuccessHandler"
-		class="com.Singedshop.security.CustomSuccessHandler" />
+		class="com.Singedshop.security.CustomSuccessHandler">
+	</beans:bean>
+		
+	<beans:bean id="customUserDetailsService"
+		class="com.Singedshop.service.web.CustomUserDetailsService">
+	</beans:bean>
+			
+ 	<beans:bean id="bcryptEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/> 
+		
+<!-- 	<beans:bean id="md5Encoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder">
+	</beans:bean>  -->
+		
 	<!-- <beans:bean id="customAuthenticationProvider"
 	class="com.Singedshop.security.CustomAuthenticationProvider" /> -->
-
+	
 </beans:beans>

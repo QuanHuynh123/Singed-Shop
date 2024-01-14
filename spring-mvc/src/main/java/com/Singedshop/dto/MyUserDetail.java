@@ -5,11 +5,13 @@ import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
+@SuppressWarnings("serial")
 public class MyUserDetail extends User {
     private int idUser;
     private String fullName;
 
-    public MyUserDetail(String username, String password , boolean enabled, boolean accountNonExpired,
+
+    public MyUserDetail(String username, String password ,  boolean enabled, boolean accountNonExpired,
                         boolean credentialsNonExpired, boolean accountNonLocked,
                         Collection<? extends GrantedAuthority> authorities) {
         super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
@@ -30,4 +32,13 @@ public class MyUserDetail extends User {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+
+	public int getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
+	}    
+    
 }

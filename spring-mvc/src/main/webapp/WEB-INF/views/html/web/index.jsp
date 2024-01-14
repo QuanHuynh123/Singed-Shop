@@ -4,16 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/content50.css'/>">
-<link rel="stylesheet"
-	href="<c:url value='/static/css/content100.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-<title>SINGED-SHOP</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/css/content50.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/css/content100.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<title>SINGED-SHOP</title>
 </head>
 <body>
 	<div id="content_50">
@@ -40,6 +38,7 @@
 		<div id="list_product">
 
 			<c:forEach var="item" items="${listBestSaleQuanAo}" varStatus="loop">
+			<c:if test="${loop.index < 4}">
 				<div class="product">
 					<a href="<c:url value="/trang-chu/product/${item.idProduct}/${item.idStyle}"/>">
 						<div class="img_product"
@@ -51,6 +50,7 @@
 							</div>
 						</div>
 				</div>
+			</c:if>
 			</c:forEach>
 
 		</div>

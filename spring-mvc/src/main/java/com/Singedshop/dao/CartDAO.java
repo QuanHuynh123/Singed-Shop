@@ -2,6 +2,7 @@ package com.Singedshop.dao;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,12 +14,13 @@ import com.Singedshop.dto.ProductDTO;
 public class CartDAO extends BaseDAO {
 
 	@Autowired
-	ProductDAO productDAO = new ProductDAO();
+	ProductDAO productDAO  ;
 
-	public HashMap<Long, CartDTO> AddCart(long id, HashMap<Long, CartDTO> cart) {
+	public HashMap<Long, CartDTO> AddCart(Long id, HashMap<Long, CartDTO> cart) {
 
 		CartDTO itemCart = new CartDTO();
-		ProductDTO product = productDAO.getDetailProduct((int) id);
+	
+		ProductDTO product = productDAO.getDetailProduct( id.intValue()); // chuyển id từ Long sang int
 		if (product != null && cart.containsKey(id)) {
 			itemCart = cart.get(id);
 			itemCart.setQuantity(itemCart.getQuantity()+1);
@@ -32,7 +34,7 @@ public class CartDAO extends BaseDAO {
 		return cart;
 	}
 
-	public HashMap<Long, CartDTO> EditCart(long id, int quanty, HashMap<Long, CartDTO> cart) {
+	public HashMap<Long, CartDTO> EditCart(Long id, int quanty, HashMap<Long, CartDTO> cart) {
 		if (cart == null) {
 			return cart;
 		}
@@ -47,7 +49,7 @@ public class CartDAO extends BaseDAO {
 		return cart;
 	}
 
-	public HashMap<Long, CartDTO> DeleteCart(long id, HashMap<Long, CartDTO> cart) {
+	public HashMap<Long, CartDTO> DeleteCart(Long id, HashMap<Long, CartDTO> cart) {
 		if (cart == null) {
 			return cart;
 		}
@@ -71,6 +73,13 @@ public class CartDAO extends BaseDAO {
 	}
 
 	public double TotalPrice(HashMap<Long, CartDTO> cart) {
+		
+		if(cart.size() == 1 ) {
+			Set<Long> keySet = cart.keySet(); // lấy tập hợp các khóa do chỉ có 1 khóa nếu cart chỉ có 1 sản phẩm
+			Long onlyKey = keySet.iterator().next();
+			return cart.get(onlyKey).getTotalPrice();
+		}
+		
 		double totalPrice = 0;
 		for (Map.Entry<Long, CartDTO> itemCart : cart.entrySet()) { // Map đại diện 1 phần tử trong cart
 			totalPrice += itemCart.getValue().getTotalPrice();

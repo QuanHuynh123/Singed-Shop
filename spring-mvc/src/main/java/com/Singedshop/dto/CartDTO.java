@@ -5,12 +5,8 @@ public class CartDTO {
 	private double totalPrice;
 	private ProductDTO productDTO ;
 	
-	
 	public CartDTO() {
 	}
-
-	
-	
 
 	public CartDTO(int quantity, double totalPrice, ProductDTO productDTO) {
 		super();
@@ -18,9 +14,6 @@ public class CartDTO {
 		this.totalPrice = totalPrice;
 		this.productDTO = productDTO;
 	}
-
-
-
 
 	public int getQuantity() {
 		return quantity;
@@ -50,9 +43,6 @@ public class CartDTO {
 	public void setProductDTO(ProductDTO quanAoDTO) {
 		this.productDTO = quanAoDTO;
 	}
-	
-	
 
-	
 	
 }

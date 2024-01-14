@@ -10,7 +10,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-public class WebConfig {
+public class WebConfigConnectDatabase {
 
 	@Value("${spring.datasource.url}")
 	private String dbUrl;

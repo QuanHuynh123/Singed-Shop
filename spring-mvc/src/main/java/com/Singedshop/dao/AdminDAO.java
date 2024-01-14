@@ -14,6 +14,7 @@ public class AdminDAO extends BaseDAO {
 				+ "VALUES (?,?,?,?,?,?,?);";
 	jdbcTemplate.update(sql,newProduct.getNameProduct(), newProduct.getQuantity(),newProduct.getPrice(),newProduct.getDescribe(),newProduct.getIdStyle(),newProduct.getCategory(),"");
 	} 
+	
 	public void updateProductAdmin(ProductDTO updateProduct) {
 		String sql= "Use SingedShop\r\n"
 				+ "Update Product Set nameProduct = ?  , quantity = ? , price  = ?, describe  = ?, idStyle = ?, idCategory = ?  Where idProduct  = ?  ";

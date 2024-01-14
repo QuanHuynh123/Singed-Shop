@@ -3,23 +3,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/cart.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-<title>SINGED-SHOP</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="<c:url value='/static/css/header.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/css/cart.css'/>">
+	<link rel="stylesheet" href="<c:url value='/static/icon/themify-icons/themify-icons.css'/>">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<title>SINGED-SHOP</title>
 </head>
 <body>
 	<div id="content_cart">
 		<div class="column_product">
 		
-		<c:if test="${ CartSinged.size() > 0 }">
+		<c:if test="${ Cart.size() > 0 }">
 			<ul>
 
-				<c:forEach var="item" items="${ CartSinged }" varStatus="loop">
+				<c:forEach var="item" items="${ Cart }" varStatus="loop">
 					<li id="product_cart">
 						<img class="img_product_cart" style="background-image: url(<c:url value="/static/product/${item.value.productDTO.image }"/>) ; width: 120px; height: 120px; background-size: cover; margin-left: 40px;">
 							<div class="infor_product_cart">
@@ -55,7 +54,7 @@
 			
 		</div>
 		<div class="column_funtion">
-			<h3 class="all_price_cart">Thành tiền :${TotalPriceCartSinged }</h3>
+			<h3 class="all_price_cart">Thành tiền :${TotalPriceCart }</h3>
 			<a href="/spring-mvc/trang-chu/pay"><button  class="btn_buy_cart">Mua</button></a>
 			<a href="/spring-mvc/DeleteAllcart"><button class="btn_delete_cart">Xóa tất cả</button> </a>
 		</div>

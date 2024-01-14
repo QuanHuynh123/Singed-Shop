@@ -14,6 +14,9 @@
 <body>
 
 	<div id="content_pay">
+	<c:if test="${not empty errorMessage}">
+    	<div class="error-message">${errorMessage}</div>
+	</c:if>
 		<i class="fa-solid fa-money-check-dollar"></i>
 		<h1 class="title_pay">Thanh toán</h1>
 		<h4 class="title_check_pay"> Vui lòng kiểm tra thông Khách hàng, thông tin Hàng trước khi đặt. </h4>
@@ -47,15 +50,14 @@
 					<button type="submit" id="btn_order" >Đặt hàng</button>
 				</div>
 			</form:form>
-				<c:if test="${ CartSinged.size() > 0 }">
 				<div id="content_infor_product">
 					<div id="title_product">
 						<h3>Sản phẩm</h3>
-						<label>100</label>
+						<label>${TotalQuantityCart }</label>
 					</div>
 					<div id="infor_product">
 							<ul>
-								<c:forEach var="item" items="${ CartSinged }" varStatus="loop">
+								<c:forEach var="item" items="${ Cart }" varStatus="loop">
 								<div id="product_to_order">
 									<div id="name_price">
 										<h4 id="name_product"> ${item.value.productDTO.nameProduct } </h4>
@@ -74,7 +76,6 @@
 						<button class="btn_code_sale">Xác nhận</button>
 					</div>
 				</div>
-				</c:if>
 			</div>
 	</div>
 	<script src="<c:url value='/static/javascript/header.js'/>"></script>

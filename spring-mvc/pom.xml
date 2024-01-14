@@ -135,21 +135,18 @@
 	 <!--  CONFIG BẤT LỰC , CHÁN ĐỜI , CÁI DM ĐỜI -->
 	 	
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.3.1</version>
-				<configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-                <encoding>Cp1252</encoding> <!-- Thêm dòng này -->
-            	</configuration>
-			</plugin>
-		</plugins>
-	</build>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
+            <configuration>
+                <encoding>UTF-8</encoding> <!-- hoặc bất kỳ bảng mã nào bạn đang sử dụng -->
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 
 
 </project>

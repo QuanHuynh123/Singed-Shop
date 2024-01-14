@@ -71,4 +71,17 @@ public class AdminController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/admin/bill", method = RequestMethod.GET)
+	public ModelAndView billAdminPage(ModelMap model) {
+		ModelAndView mav  = new ModelAndView("html/admin/bill/bill");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/admin/billDetail/{idBill}", method = RequestMethod.GET)
+	public ModelAndView billDetailAdminPage(ModelMap model, @PathVariable int idBill) {
+		ModelAndView mav  = new ModelAndView("html/admin/bill/billDetail");
+		
+		return mav;
+	}
 }

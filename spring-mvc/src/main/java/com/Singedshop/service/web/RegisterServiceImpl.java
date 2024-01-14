@@ -11,8 +11,7 @@ import com.Singedshop.service.web.Interface.IRegisterService;
 public class RegisterServiceImpl implements IRegisterService{
 	
 	@Autowired
-	UserDAO account = new UserDAO();
-
+	UserDAO account ;
 	@Override
 	public int addAccount(UserDTO  user) {
 		if(account.addAccount(user) < 0  ) return 0;
