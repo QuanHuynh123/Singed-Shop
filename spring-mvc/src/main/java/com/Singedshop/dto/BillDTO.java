@@ -1,5 +1,6 @@
 package com.Singedshop.dto;
 
+import java.time.LocalDate;
 
 public class BillDTO {
 	private int idBill;
@@ -7,14 +8,14 @@ public class BillDTO {
 	private String email;
 	private int totalQuanty;
 	private String address;
-	boolean gender ;
-	String orderDate ; 
-	String  status ;   // Pending confirmation , Confirmed
+	private String orderDate ; 
+	String  status ;   // Pending confirmation , Confirmed , cancel
 	private double totalPrice;
 	BillDetailDTO billDetail ; 
 	
 	 public boolean hasNullFields() {
-	        return this.address == null || this.phone == null || this.email == null;
+		 	if(this.address == "" || this.phone == "" || this.email == "") return true ; 
+		 	else return this.address == null || this.phone == null || this.email == null;
 	    }
 	
 	
@@ -67,14 +68,15 @@ public class BillDTO {
 		this.address = address;
 	}
 
+	
 	public String getOrderDate() {
 		return orderDate;
 	}
-	
+
 	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
-	
+
 	public double getTotalPrice() {
 		return totalPrice;
 	}
@@ -86,14 +88,6 @@ public class BillDTO {
 	public String getStatus() {
 		return status;
 	}
-
-	public boolean isGender() {
-		return gender;
-	}
-	
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
 	
 	public String isStatus() {
 		return status;
@@ -101,8 +95,6 @@ public class BillDTO {
 	
 	public void setStatus(String status) {
 		this.status = status;
-	} 
-	
-	
+	}	
 	
 }

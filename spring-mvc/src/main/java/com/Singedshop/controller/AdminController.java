@@ -13,15 +13,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.Singedshop.dto.BillDTO;
+import com.Singedshop.dto.BillDetailDTO;
 import com.Singedshop.dto.ProductDTO;
 import com.Singedshop.security.utils.MessageUtil;
 import com.Singedshop.service.admin.AdminServiceImpl;
+import com.Singedshop.service.web.BillDetailServiceImpl;
+import com.Singedshop.service.web.BillServiceImpl;
 import com.Singedshop.service.web.CategoryServiceImpl;
 import com.Singedshop.service.web.HomeServiceImpl;
 
 
 @Controller(value = "AdminController")
-public class AdminController {
+public class AdminController extends BaseController{
 	@Autowired
 	AdminServiceImpl admin ; 
 	
@@ -34,6 +38,11 @@ public class AdminController {
 	@Autowired
 	MessageUtil messageUtil ;
 	
+	@Autowired
+	BillServiceImpl billServiceImpl;
+	
+	@Autowired
+	BillDetailServiceImpl billDetailServiceImpl;
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView homePage(ModelMap modelMap,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("html/admin/admin");
@@ -74,14 +83,34 @@ public class AdminController {
 	@RequestMapping(value = "/admin/bill", method = RequestMethod.GET)
 	public ModelAndView billAdminPage(ModelMap model) {
 		ModelAndView mav  = new ModelAndView("html/admin/bill/bill");
-		
+		List<BillDTO > billDTO = billServiceImpl.getAllBill();
+		mav.addObject("Bill", billDTO);
 		return mav;
 	}
 	
 	@RequestMapping(value = "/admin/billDetail/{idBill}", method = RequestMethod.GET)
 	public ModelAndView billDetailAdminPage(ModelMap model, @PathVariable int idBill) {
 		ModelAndView mav  = new ModelAndView("html/admin/bill/billDetail");
+		List<BillDetailDTO> billDetailDTO = billDetailServiceImpl.getBillDetail(idBill);
+		mav.addObject("BillDetail",billDetailDTO);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/admin/bill/{idBill}/{status}", method = RequestMethod.GET)
+	public String billDetailAdminPage(ModelMap model, @PathVariable int idBill, @PathVariable int status) {
+		if(status == 1 ) {
+			billServiceImpl.comfirmBill(idBill);
+		}
+		else billServiceImpl.cancelBill(idBill);
+		return "redirect:/admin/bill";
+	}
+	
+	@RequestMapping(value = "/admin/dashboard", method = RequestMethod.GET)
+	public ModelAndView dashBoardAdminPage(ModelMap model) {
+		ModelAndView mav = new ModelAndView("html/admin/dashboard");
 		
 		return mav;
 	}
+
+	
 }

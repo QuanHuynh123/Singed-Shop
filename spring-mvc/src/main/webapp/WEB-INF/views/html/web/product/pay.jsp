@@ -24,13 +24,7 @@
 			<form:form action="pay" method="POST" modelAttribute="bill">   
 				<div id="content_infor_customer">
 					<h4 class="title_infor_customer">Thông tin khách hàng</h4>
-					<a class="text">Họ tên</a> <input class="input"> <label
-						for="gender">Giới tính:</label> 
-						<select id="gender" class="select-box">
-							<option value="male">Nam</option>
-							<option value="female">Nữ</option>
-							<option value="other">Khác</option>
-						</select> 
+					<a class="text">Họ tên</a> <input class="input"> 
 						<a class="text">Địa chỉ</a> 
 						<form:input class="input" path="address"/> 
 						<a class="text">Số điện thoại</a> 

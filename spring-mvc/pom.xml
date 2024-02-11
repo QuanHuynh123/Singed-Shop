@@ -132,10 +132,28 @@
 			<artifactId>spring-security-acl</artifactId>
 			<version>3.2.8.RELEASE</version>
 		</dependency>
+		
 	 <!--  CONFIG BẤT LỰC , CHÁN ĐỜI , CÁI DM ĐỜI -->
+	 
+	<!-- Email -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context-support</artifactId>
+	    <version>5.2.2.RELEASE</version>
+	</dependency>
+	
+	<!-- Jakarta Mail -->
+	<dependency>
+	    <groupId>com.sun.mail</groupId>
+	    <artifactId>javax.mail</artifactId>
+	    <version>1.6.2</version>
+	</dependency>
+	<!-- Email -->
+
 	 	
 	</dependencies>
-<build>
+
+ <build>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>

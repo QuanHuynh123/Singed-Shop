@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.Singedshop.security.utils.SecurityUtils" %>
-            <div id="home-admin">
+         <div id="home-admin">
             <div id="menu">
                 <div id="intro-admin">
                     <div id="row-intro">
@@ -18,7 +18,7 @@
                         <li><i class="fa-solid fa-house-lock icon-list-menu"></i></i> <a
                             href="<c:url value="/admin"/>">Home</a></li>
                         <li><i class="fa-solid fa-chart-line icon-list-menu"></i> <a
-                            href="#">Dashboard</a></li>
+                            href="<c:url value="/admin/dashboard"/>">Dashboard</a></li>
                         <li><i class="fa-solid fa-file icon-list-menu"></i> <a
                             href="<c:url value="/trang-chu"/>">Pages</a></li>
                         <li><i class="fa-solid fa-file-invoice icon-list-menu"></i> <a

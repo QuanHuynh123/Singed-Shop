@@ -1,5 +1,6 @@
 package com.Singedshop.dao;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +16,8 @@ public class CartDAO extends BaseDAO {
 
 	@Autowired
 	ProductDAO productDAO  ;
+	
+	DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
 	public HashMap<Long, CartDTO> AddCart(Long id, HashMap<Long, CartDTO> cart) {
 
@@ -24,11 +27,14 @@ public class CartDAO extends BaseDAO {
 		if (product != null && cart.containsKey(id)) {
 			itemCart = cart.get(id);
 			itemCart.setQuantity(itemCart.getQuantity()+1);
-			itemCart.setTotalPrice(itemCart.getQuantity()*itemCart.getProductDTO().getPrice());
+			itemCart.setTotalPrice(itemCart.getQuantity() * itemCart.getProductDTO().getPrice());
+			double roundedTotalPrice = Double.parseDouble(decimalFormat.format(itemCart.getTotalPrice()));
+			itemCart.setTotalPrice(roundedTotalPrice);
 		} else {
 			itemCart.setProductDTO(product);
 			itemCart.setQuantity(1);
-			itemCart.setTotalPrice(product.getPrice());
+			double roundedTotalPrice = Double.parseDouble(decimalFormat.format(product.getPrice()));
+			itemCart.setTotalPrice(roundedTotalPrice);
 		}
 		cart.put(id, itemCart);
 		return cart;

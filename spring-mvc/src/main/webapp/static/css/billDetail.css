@@ -300,6 +300,7 @@ footer{
     transform: translateY(100%);
     z-index: 5;
     border-radius: 5px;
+    font-size: 14px;
   }
 
   .product:hover .product-info {

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,43 +16,21 @@
 	<script src="<c:url value='/static/javascript/sweetalert2.min.js'/>"></script>
 	<link rel="stylesheet" href="<c:url value='/static/css/sweetalert2.min.css'/>">
 </head>
-<body>
+<body>			
+			<div id="content">
 	            <div id="div-table">
+	               <c:forEach var="item" items="${BillDetail }">
                    <div class="product">
-                        <img src="../img/aaaa.png" style="width: 100px; height: 100px;">
+                        <img src="<c:url value='/static/img/${item.image}' />" style="width: 100px; height: 100px;">
                         <div class="product-info">
-                            <h3>Tên sản phẩm : Áo ba lổ</h3>
-                            <h3>Tổng giá : 100k </h3>
-                            <h3>Số lượng : 50 </h3>
+                            <h3>Tên sản phẩm : ${item.nameProduct }</h3>
+                            <h3>Tổng giá : ${item.totalPrice } </h3>
+                            <h3>Số lượng : ${item.quanty } </h3>
                           </div>
-                   </div>
-
-                   <div class="product">
-                        <img src="../img/aaaa.png" style="width: 100px; height: 100px;">
-                        <div class="product-info">
-                            <h3>Tên sản phẩm : Áo ba lổ</h3>
-                            <h3>Tổng giá : 100k </h3>
-                            <h3>Số lượng : 50 </h3>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <img src="../img/aaaa.png" style="width: 100px; height: 100px;">
-                        <div class="product-info">
-                            <h3>Tên sản phẩm : Áo ba lổ</h3>
-                            <h3>Tổng giá : 100k </h3>
-                            <h3>Số lượng : 50 </h3>
-                          </div>
-                   </div>
-
-                   <div class="product">
-                        <img src="../img/aaaa.png" style="width: 100px; height: 100px;">
-                        <div class="product-info">
-                            <h3>Tên sản phẩm : Áo ba lổ</h3>
-                            <h3>Tổng giá : 100k </h3>
-                            <h3>Số lượng : 50 </h3>
-                        </div>
-                    </div>
+                   </div> 
+                   </c:forEach>          
                 </div>
+            </div>
+           </div>
 </body>
 </html>

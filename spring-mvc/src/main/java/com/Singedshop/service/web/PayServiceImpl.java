@@ -30,6 +30,7 @@ public class PayServiceImpl implements IPayService {
 		
 		// chuyển giao bill vào billDetail
 		for(Map.Entry<Long, CartDTO> itemCart : cart.entrySet()) {
+
 			BillDetailDTO billDetail = new BillDetailDTO();
 			billDetail.setIdBill(idBill);
 			billDetail.setIdProduct(itemCart.getValue().getProductDTO().getIdProduct());
@@ -37,6 +38,7 @@ public class PayServiceImpl implements IPayService {
 			billDetail.setTotalPrice(itemCart.getValue().getTotalPrice());
 			billDetail.setIdCategory(itemCart.getValue().getProductDTO().getCategory());
 			billDetail.setNameProduct(itemCart.getValue().getProductDTO().getNameProduct());
+			billDetail.setImage(itemCart.getValue().getProductDTO().getImage());
 			pay.addBillDetail(billDetail);
 		}
 		return 1;

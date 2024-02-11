@@ -13,6 +13,11 @@
 </head>
 <body>
 	<div id="content_cart">
+	
+	<c:if test="${not empty alert}">
+    	<div class="alert-message">${alert}</div>
+	</c:if>
+	
 		<div class="column_product">
 		
 		<c:if test="${ Cart.size() > 0 }">
@@ -25,7 +30,7 @@
 								<div class="vertical_column">
 									<h3 class="name_product_cart">${item.value.productDTO.nameProduct }</h3>
 									<div class="parallel">
-										<h4 class="color_product_cart">Mau</h4>
+										<h4 class="color_product_cart">Màu</h4>
 										<div class="display_color_cart last"></div>
 									</div>
 								<div class="parallel">
@@ -33,7 +38,7 @@
 									<h4 class="last">XL</h4>
 								</div>
 								<div class="parallel">
-									<h4 class="quantity_product_cart">So luong</h4>
+									<h4 class="quantity_product_cart">Số lượng</h4>
 							    	<input class="last input_quanty" id="quantity-cart-${item.key}" type="number" min="1" max="1000" value="${item.value.quantity}">
 								</div>
 							</div>

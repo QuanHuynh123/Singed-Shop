@@ -17,7 +17,8 @@
 	<link rel="stylesheet" href="<c:url value='/static/css/sweetalert2.min.css'/>">
 </head>
   <body>
-
+			<div id="content">
+			    <h1 id="seen-detail">Click vào id để xem chi tiết đơn hàng</h1>
                 <div id="div-table">
                     <table class="product-table">
                         <thead>
@@ -33,39 +34,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                        	<c:forEach var="item" items="${Bill }">
                             <tr>
-                                <td><a class="input-cell" type="text">1</a></td>
-                                <td><a class="input-cell" type="text">0703200286</a></td>
-                                <td><a class="input-cell" type="text">bestleague07072002@gmail.com</a></td>
-                                <td><textarea class="input-cell" id="input-address" rows="4" cols="50">83/1b Tay Lan xa Ba Diem huyen Hoc Mon</textarea></td>
-                                <td><a class="input-cell" type="text">100</a></td>
-                                <td><a class="input-cell" type="text">123-123-312</a></td>
-                                <td><a class="input-cell" type="text">12314</a></td>
-                                <td><a class="input-cell" type="text">Pending confirmation</a></td>
-                                <td><button type="text" class="confirm">Xác nhận</button></td>
+                                <td><a href="<c:url value="/admin/billDetail/${item.idBill }"/>" class="input-cell click_id" type="text">${item.idBill}</a></td>
+                                <td><a class="input-cell" type="text">${item.phone }</a></td>
+                                <td><a class="input-cell" type="text">${item.email }</a></td>
+                                <td><textarea class="input-cell" id="input-address" rows="4" cols="50">${item.address }</textarea></td>
+                                <td><a class="input-cell" type="text">${item.totalQuanty }</a></td>
+                                <td><a class="input-cell" type="text">${item.orderDate }</a></td>
+                                <td><a class="input-cell" type="text">${item.totalPrice }</a></td>
+                                <td><a class="input-cell" type="text">${item.status }</a></td>
+                               	<td id="button-check">
+                               		<a href="<c:url value="/admin/bill/${item.idBill}/1"/>"><button type="button" class="confirm">Xác nhận</button></a>
+                                    <a href="<c:url value="/admin/bill/${item.idBill}/2"/>"><button type="button" class="cancel">Hủy</button></a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td><a class="input-cell" type="text">2</a></td>
-                                <td><a class="input-cell" type="text">0703200286</a></td>
-                                <td><a class="input-cell" type="text">bestleague07072002@gmail.com</a></td>
-                                <td><textarea class="input-cell" id="input-address" rows="4" cols="50">83/1b Tay Lan xa Ba Diem huyen Hoc Mon</textarea></td>
-                                <td><a class="input-cell" type="text">100</a></td>
-                                <td><a class="input-cell" type="text">123-123-312</a></td>
-                                <td><a class="input-cell" type="text">12314</a></td>
-                                <td><a class="input-cell" type="text">Pending confirmation</a></td>
-                                <td><button  type="text" class="confirm">Xác nhận</button></td>
-                            </tr>
-                            <tr>
-                                <td><a class="input-cell" type="text">3</a></td>
-                                <td><a class="input-cell" type="text">0703200286</a></td>
-                                <td><a class="input-cell" type="text">bestleague07072002@gmail.com</a></td>
-                                <td><textarea class="input-cell" id="input-address" rows="4" cols="50">83/1b Tay Lan xa Ba Diem huyen Hoc Mon</textarea></td>
-                                <td><a class="input-cell" type="text">100</a></td>
-                                <td><a class="input-cell" type="text">123-123-312</a></td>
-                                <td><a class="input-cell" type="text">12314</a></td>
-                                <td><a class="input-cell" type="text">Pending confirmation</a></td>
-                                <td><button type="text" class="confirm">Xác nhận</button></td>
-                            </tr>
+                            </c:forEach>
+                   
                             <!-- Thêm các dòng khác tương tự cho các sản phẩm khác -->
                         </tbody>
                     </table>

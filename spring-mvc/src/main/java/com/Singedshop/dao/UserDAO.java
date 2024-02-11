@@ -3,17 +3,13 @@ package com.Singedshop.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.Singedshop.constant.SystemConstant;
-import com.Singedshop.dto.UserDTO;
-import com.Singedshop.dto.ProductDTO;
 import com.Singedshop.dto.RoleDTO;
+import com.Singedshop.dto.UserDTO;
 import com.Singedshop.dto.mapper.RoleDTOMapper;
 import com.Singedshop.dto.mapper.UserDTOMapper;
 

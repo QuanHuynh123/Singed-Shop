@@ -43,7 +43,6 @@ public class CartController extends BaseController {
 		session.setAttribute("Cart", cart);
 		session.setAttribute("TotalQuantityCart", cartService.TotalQuanty(cart));
 		session.setAttribute("TotalPriceCart",cartService.TotalPrice(cart));
-		System.out.println(cartService.TotalQuanty(cart) + " " + cartService.TotalPrice(cart));
 		return "redirect:/trang-chu/product/"+id +"/"+idStyle;
 		//return "redirect:"+request.getHeader("Referer"); 			// trở lại đường dẫn trước đó khi add card , liên quan tới  HttpServletRequest
 	}

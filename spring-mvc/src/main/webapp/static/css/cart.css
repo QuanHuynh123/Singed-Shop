@@ -132,3 +132,19 @@
 	width: 160px;
 	white-space: nowrap;
 }
+
+.alert-message{
+	z-index: 5;
+	color: #ff0c0c;
+    background-color: #2ad45a;
+    border: 1px solid #2ad45a;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+}

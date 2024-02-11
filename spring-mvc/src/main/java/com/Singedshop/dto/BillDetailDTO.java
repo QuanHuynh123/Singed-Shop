@@ -8,7 +8,7 @@ public class BillDetailDTO {
 	private String nameProduct ; 
 	private int idCategory ;
 	private long idBill ; 
-	
+	private String image;
 	
 	public BillDetailDTO() {
 		super();
@@ -70,7 +70,16 @@ public class BillDetailDTO {
 	
 	public void setIdBill(long idBill2) {
 		this.idBill = idBill2;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	} 
+	
 	
 	
 	

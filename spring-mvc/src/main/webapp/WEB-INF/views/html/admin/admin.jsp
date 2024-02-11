@@ -87,6 +87,8 @@
 			</div>
 		</div>
 	</div>
+	
+	
 	<script src="<c:url value='/static/javascript/admin.js'/>"></script>
 	<script >
 		function warningBeforeDelete() {
